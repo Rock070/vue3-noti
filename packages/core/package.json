@@ -1,0 +1,13 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/main.ts",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c"
+  }
+}
