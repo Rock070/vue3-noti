@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { useNoti } from '@vue3-noti/core'
+
 import HelloWorld from './components/HelloWorld.vue'
+
+useNoti()
 </script>
 
 <template>

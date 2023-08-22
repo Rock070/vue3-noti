@@ -1,5 +1,1 @@
-const test = 'hello world'
-
-export default {
-  test,
-}
+export * from './composables/useNoti'
