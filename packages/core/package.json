@@ -2,10 +2,8 @@
   "name": "@vue3-noti/core",
   "version": "1.0.0",
   "description": "",
-
   "source": "src/main.ts",
   "author": "",
-
   "license": "ISC",
   "keywords": [],
   "exports": {
@@ -21,5 +19,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "rimraf dist && rollup -c"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.3.0"
   }
 }

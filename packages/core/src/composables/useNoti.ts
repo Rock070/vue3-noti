@@ -1,4 +1,8 @@
+import { inject } from 'vue'
+
+import { INJECT_KEY } from '../constant'
+
 export function useNoti() {
-  // eslint-disable-next-line no-console
-  console.log('useNoti run')
+  const noti = inject(INJECT_KEY)
+  return noti
 }

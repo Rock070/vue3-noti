@@ -29,6 +29,9 @@ module.exports = [
        * Bundle an index.esm for global import.
        */
       {
+        globals: {
+          vue: 'Vue',
+        },
         name: '@vue3-noti',
         format: 'esm',
         dir: 'dist',
@@ -49,6 +52,9 @@ module.exports = [
     ],
     output: [
       {
+        globals: {
+          vue: 'Vue',
+        },
         name: '@vue3-noti',
         format: 'cjs',
         dir: 'dist',
@@ -61,6 +67,7 @@ module.exports = [
   {
     input: source,
     external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
+
     plugins: [
       typescript({
         clean: true,
@@ -68,6 +75,10 @@ module.exports = [
     ],
     output: [
       {
+        globals: {
+          'vue': 'Vue',
+          '@vueuse/core': '@vueuse/core',
+        },
         name: '@vue3-noti',
         format: 'umd',
         dir: 'dist',
@@ -79,10 +90,14 @@ module.exports = [
   // d.ts for types
   {
     input: source,
+    external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
     output: [{
       name: '@vue3-noti',
       format: 'es',
       dir: 'dist',
+      globals: {
+        vue: 'Vue',
+      },
       entryFileNames: 'index.d.ts',
     }],
     plugins: [dts()],
