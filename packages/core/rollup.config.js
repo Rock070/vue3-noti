@@ -1,4 +1,6 @@
 const { resolve } = require('node:path')
+const { dts } = require('rollup-plugin-dts')
+
 const typescript = require('rollup-plugin-typescript2')
 
 const { readJSONSync } = require('fs-extra')
@@ -8,20 +10,81 @@ const { source } = readJSONSync(
   'utf-8',
 )
 
-module.exports = {
-  input: [source],
-  external: ['vue', '@vueuse/core'], // 不打包進去的外部依賴
-  plugins: [
-    typescript(/* { plugin options } */),
-  ],
-  output: [
-    /**
-     * 打包一個 index.esm 給全局引入
-     */
-    {
-      format: 'esm',
+/**
+ * Rollup configuration for building the Vue3-noti package.
+ * @type {import('rollup').RollupOptions[]}
+ */
+module.exports = [
+  // ES module for browsers
+  {
+    input: source,
+    external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
+    plugins: [
+      typescript({
+        clean: true,
+      }),
+    ],
+    output: [
+      /**
+       * Bundle an index.esm for global import.
+       */
+      {
+        name: '@vue3-noti',
+        format: 'esm',
+        dir: 'dist',
+        entryFileNames: 'index.esm.mjs',
+      },
+
+    ],
+  },
+
+  // CommonJS for Node and bundlers
+  {
+    input: source,
+    external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
+    plugins: [
+      typescript({
+        clean: true,
+      }),
+    ],
+    output: [
+      {
+        name: '@vue3-noti',
+        format: 'cjs',
+        dir: 'dist',
+        entryFileNames: 'index.cjs.js',
+      },
+    ],
+  },
+
+  // UMD for browsers
+  {
+    input: source,
+    external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
+    plugins: [
+      typescript({
+        clean: true,
+      }),
+    ],
+    output: [
+      {
+        name: '@vue3-noti',
+        format: 'umd',
+        dir: 'dist',
+        entryFileNames: 'index.umd.js',
+      },
+    ],
+  },
+
+  // d.ts for types
+  {
+    input: source,
+    output: [{
+      name: '@vue3-noti',
+      format: 'es',
       dir: 'dist',
-      entryFileNames: 'index.mjs',
-    },
-  ],
-}
+      entryFileNames: 'index.d.ts',
+    }],
+    plugins: [dts()],
+  },
+]

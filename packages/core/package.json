@@ -1,13 +1,25 @@
 {
-  "name": "core",
+  "name": "@vue3-noti/core",
   "version": "1.0.0",
   "description": "",
+
   "source": "src/main.ts",
   "author": "",
+
   "license": "ISC",
   "keywords": [],
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.mjs",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "clean": "rimraf dist",
+    "build": "rimraf dist && rollup -c"
   }
 }

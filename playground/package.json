@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vue3-noti/core": "workspace:*",
     "vue": "^3.3.4"
   },
   "devDependencies": {
