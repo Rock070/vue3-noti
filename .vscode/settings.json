@@ -20,5 +20,9 @@
     "json",
     "jsonc",
     "yaml"
+  ],
+  "cSpell.words": [
+    "composables",
+    "noti"
   ]
 }
