@@ -9,9 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck:playground": "vue-tsc -p ./playground/tsconfig.json --noEmit",
-    "typecheck:core": "vue-tsc -p ./packages/core/tsconfig.json --noEmit",
-    "typecheck": "pnpm typecheck:playground && pnpm typecheck:core",
+    "typecheck": "vue-tsc -p ./packages/core/tsconfig.json --noEmit",
     "play": "cd playground && pnpm dev"
   },
   "devDependencies": {
