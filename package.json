@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "play": "cd playground && pnpm dev"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
