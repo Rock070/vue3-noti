@@ -10,6 +10,8 @@ const { source } = readJSONSync(
   'utf-8',
 )
 
+const input = resolve(__dirname, source)
+
 /**
  * Rollup configuration for building the Vue3-noti package.
  * @type {import('rollup').RollupOptions[]}
@@ -17,7 +19,7 @@ const { source } = readJSONSync(
 module.exports = [
   // ES module for browsers
   {
-    input: source,
+    input,
     external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
     plugins: [
       typescript({
@@ -43,7 +45,7 @@ module.exports = [
 
   // CommonJS for Node and bundlers
   {
-    input: source,
+    input,
     external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
     plugins: [
       typescript({
@@ -65,7 +67,7 @@ module.exports = [
 
   // UMD for browsers
   {
-    input: source,
+    input,
     external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
 
     plugins: [
@@ -89,7 +91,7 @@ module.exports = [
 
   // d.ts for types
   {
-    input: source,
+    input,
     external: ['vue', '@vueuse/core'], // External dependencies that are not bundled
     output: [{
       name: '@vue3-noti',
