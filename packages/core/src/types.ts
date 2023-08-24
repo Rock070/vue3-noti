@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 
-export enum NOTI_TYPE {
+export const enum NOTI_TYPE {
   SUCCESS = 'success',
   WARNING = 'warning',
   ERROR = 'error',
@@ -10,7 +10,7 @@ export enum NOTI_TYPE {
 /**
  * An object containing constants for the position of notifications.
  */
-export enum NOTI_POSITION {
+export const enum NOTI_POSITION {
   /**
    * Notifications appear at the top right of the screen and slide in from the right.
    */
