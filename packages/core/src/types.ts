@@ -10,44 +10,51 @@ export enum NOTI_TYPE {
 /**
  * An object containing constants for the position of notifications.
  */
-export const NOTI_POSITION = {
+export enum NOTI_POSITION {
   /**
    * Notifications appear at the top right of the screen and slide in from the right.
    */
-  TOP_RIGHT: 'top-right',
+  TOP_RIGHT = 'top-right',
 
   /**
    * Notifications appear at the top left of the screen and slide in from the left.
    */
-  TOP_LEFT: 'top-left',
+  TOP_LEFT = 'top-left',
 
   /**
    * Notifications appear at the bottom right of the screen and slide in from the right.
    */
-  BOTTOM_RIGHT: 'bottom-right',
+  BOTTOM_RIGHT = 'bottom-right',
 
   /**
    * Notifications appear at the bottom left of the screen and slide in from the left.
    */
-  BOTTOM_LEFT: 'bottom-left',
+  BOTTOM_LEFT = 'bottom-left',
 
   /**
    * Notifications appear at the middle top of the screen and slide in from the top.
    */
-  MIDDLE_TOP: 'middle-top',
+  MIDDLE_TOP = 'middle-top',
 
   /**
    * Notifications appear at the middle left of the screen and slide in from the left.
    */
-  MIDDLE_LEFT: 'middle-left',
+  MIDDLE_LEFT = 'middle-left',
 
   /**
    * Notifications appear at the middle right of the screen and slide in from the right.
    */
-  MIDDLE_RIGHT: 'middle-right',
+  MIDDLE_RIGHT = 'middle-right',
+}
+
+export interface NotiOptions {
+  type: NOTI_TYPE
+  position: NOTI_POSITION
+  timeout: number
 }
 
 export interface NotiContext {
+  option: Ref<NotiOptions>
   isShow: Ref<boolean>
   toggleShow: (val?: boolean) => void
   notifications: Ref<string>

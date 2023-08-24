@@ -8,6 +8,7 @@ export function useNotiProvide() {
   const [isShow, toggleShow] = useToggle(false)
 
   provide(INJECT_KEY, {
+    option,
     isShow,
     toggleShow,
     notifications,
