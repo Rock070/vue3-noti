@@ -9,6 +9,9 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "typecheck:playground": "vue-tsc -p ./playground/tsconfig.json --noEmit",
+    "typecheck:core": "vue-tsc -p ./packages/core/tsconfig.json --noEmit",
+    "typecheck": "pnpm typecheck:playground && pnpm typecheck:core",
     "play": "cd playground && pnpm dev"
   },
   "devDependencies": {
@@ -22,7 +25,8 @@
     "rollup-plugin-dts": "^6.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
     "simple-git-hooks": "^2.9.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "vue-tsc": "^1.8.5"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

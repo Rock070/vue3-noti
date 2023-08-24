@@ -1,0 +1,88 @@
+name: CI
+run-name: ${{ github.job }} commit ${{ github.sha }} is running GitHub Actions 🚀
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  set-output:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add SHORT_SHA env property with commit short sha
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+
+  lint:
+    strategy:
+      matrix:
+        version: [18.17.1, 16.16]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out to my repo
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.2.1
+
+      - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+          cache: pnpm
+
+      - name: Setup
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm lint
+
+  type-check:
+    strategy:
+      matrix:
+        version: [18.17.1, 16.16]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out to my repo
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.2.1
+
+      - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+          cache: pnpm
+
+      - name: Setup
+        run: pnpm install
+
+      - name: Type Checking
+        run: pnpm typecheck
+
+  # test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out to my repo
+  #       uses: actions/checkout@v3
+
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v2
+  #       with:
+  #         version: 7.2.1
+
+  #     - name: Set node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.version }}
+
+  #     - name: Setup
+  #       run: pnpm install
+
+  #     - name: Unit Test
+  #       run: pnpm test:unit

@@ -2,7 +2,7 @@
   "name": "@vue3-noti/core",
   "version": "1.0.0",
   "description": "",
-  "source": "src/main.ts",
+  "source": "./src/main.ts",
   "author": "",
   "license": "ISC",
   "keywords": [],

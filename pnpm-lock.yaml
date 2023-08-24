@@ -41,6 +41,9 @@ importers:
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
+      vue-tsc:
+        specifier: ^1.8.5
+        version: 1.8.5(typescript@5.1.6)
 
   packages/core:
     dependencies:
@@ -65,10 +68,7 @@ importers:
         version: 5.1.6
       vite:
         specifier: ^4.4.5
-        version: 4.4.5(@types/node@20.5.1)
-      vue-tsc:
-        specifier: ^1.8.5
-        version: 1.8.5(typescript@5.1.6)
+        version: 4.4.5
 
 packages:
 
@@ -744,7 +744,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.5(@types/node@20.5.1)
+      vite: 4.4.5
       vue: 3.3.4
     dev: true
 
@@ -2786,7 +2786,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@4.4.5(@types/node@20.5.1):
+  /vite@4.4.5:
     resolution: {integrity: sha512-4m5kEtAWHYr0O1Fu7rZp64CfO1PsRGZlD3TAB32UmQlpd7qg15VF7ROqGN5CyqN7HFuwr7ICNM2+fDWRqFEKaA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2814,7 +2814,6 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.5.1
       esbuild: 0.18.20
       postcss: 8.4.28
       rollup: 3.28.0
