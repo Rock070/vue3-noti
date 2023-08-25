@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { useNoti } from '@vue3-noti/core'
+import { ref } from 'vue'
+import { Noti, useNoti } from '@vue3-noti/core'
 
 import HelloWorld from './components/HelloWorld.vue'
+
+const string = ref('')
 
 useNoti()
 </script>
@@ -16,6 +19,7 @@ useNoti()
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <Noti v-model="string" />
 </template>
 
 <style scoped>

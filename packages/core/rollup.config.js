@@ -1,6 +1,6 @@
 const { resolve } = require('node:path')
 const { dts } = require('rollup-plugin-dts')
-
+const vue = require('rollup-plugin-vue')
 const typescript = require('rollup-plugin-typescript2')
 
 const { readJSONSync } = require('fs-extra')
@@ -25,6 +25,7 @@ module.exports = [
       typescript({
         clean: true,
       }),
+      vue({ css: true }),
     ],
     output: [
       /**
@@ -51,6 +52,7 @@ module.exports = [
       typescript({
         clean: true,
       }),
+      vue({ css: true }),
     ],
     output: [
       {
@@ -74,6 +76,7 @@ module.exports = [
       typescript({
         clean: true,
       }),
+      vue({ css: true }),
     ],
     output: [
       {
@@ -102,6 +105,6 @@ module.exports = [
       },
       entryFileNames: 'index.d.ts',
     }],
-    plugins: [dts()],
+    plugins: [typescript({ clean: true }), vue({ css: true }), dts()],
   },
 ]
