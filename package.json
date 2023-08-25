@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc -p ./packages/core/tsconfig.json --noEmit",
+    "dev": "pnpm -r --parallel run dev",
     "play": "cd playground && pnpm dev"
   },
   "devDependencies": {
