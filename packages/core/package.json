@@ -18,8 +18,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "rimraf dist && rollup -c",
-    "dev": "rollup -c -w"
+    "build:clean": "rimraf dist && rollup -c",
+    "build:rollup": "rollup -c",
+    "dev": "pnpm build:rollup -w"
   },
   "dependencies": {
     "@vueuse/core": "^10.3.0"
