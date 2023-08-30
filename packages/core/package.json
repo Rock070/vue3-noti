@@ -25,16 +25,16 @@
   ],
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "vite build -w && pnpm build:type",
+    "dev": "vite build -w",
     "typecheck": "vue-tsc --noEmit",
-    "build:type": "vue-tsc -p tsconfig.build-dts.json --declaration --emitDeclarationOnly",
-    "build": "vite build && pnpm build:type"
+    "build": "vite build"
   },
   "dependencies": {
     "@vueuse/core": "^10.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.3"
   }
 }

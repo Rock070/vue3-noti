@@ -58,9 +58,6 @@ watchImmediate(
   <div class="vue3-noti">
     <div v-if="open" class="vue3-noti-group">
       {{ message }}
-      <!-- <div v-for="no in notificationList" :key="no.id" class="vue3-noti-group__item">
-        message
-      </div> -->
     </div>
   </div>
 </template>
