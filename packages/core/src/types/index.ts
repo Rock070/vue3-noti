@@ -48,14 +48,10 @@ export const enum NOTI_POSITION {
 }
 
 export interface NotiOptions {
+  message: string
   type: NOTI_TYPE
   position: NOTI_POSITION
-  timeout: number
+  duration: number
 }
 
-export interface NotiContext {
-  option: Ref<NotiOptions>
-  isShow: Ref<boolean>
-  toggleShow: (val?: boolean) => void
-  notifications: Ref<string>
-}
+export type Noti = (options: NotiOptions) => void

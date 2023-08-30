@@ -5,7 +5,15 @@ import '@vue3-noti/core/style.css'
 
 const string = ref('')
 
-useNoti()
+const noti = useNoti()
+
+function callNoti() {
+  noti({
+    message: 'Hello world',
+    type: 'success',
+    duration: 3000,
+  })
+}
 </script>
 
 <template>
@@ -17,7 +25,14 @@ useNoti()
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
     </a>
     <h1> Vue3-Noti </h1>
+    <br>
+
+    <br>
     <Noti v-model:test="string" />
+
+    <button type="button" @click="callNoti">
+      notify
+    </button>
   </div>
 </template>
 
