@@ -1,5 +1,3 @@
-import type { Ref } from 'vue'
-
 export const enum NOTI_TYPE {
   SUCCESS = 'success',
   WARNING = 'warning',
@@ -54,4 +52,4 @@ export interface NotiOptions {
   duration: number
 }
 
-export type Noti = (options: NotiOptions) => void
+export type NotiEvent = (options: NotiOptions) => void
