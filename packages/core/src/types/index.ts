@@ -1,14 +1,16 @@
-export const enum NOTI_TYPE {
+export enum NOTI_TYPE {
   SUCCESS = 'success',
   WARNING = 'warning',
   ERROR = 'error',
   INFO = 'info',
 }
 
+export type NotificationType = 'success' | 'warning' | 'error' | 'info'
+
 /**
  * An object containing constants for the position of notifications.
  */
-export const enum NOTI_POSITION {
+export enum NOTI_POSITION {
   /**
    * Notifications appear at the top right of the screen and slide in from the right.
    */
@@ -45,11 +47,15 @@ export const enum NOTI_POSITION {
   MIDDLE_RIGHT = 'middle-right',
 }
 
+// export type NotiPosition = ValueOf<NotiOptions>
+export type NotiPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'middle-top' | 'middle-left' | 'middle-right'
+
 export interface NotiOptions {
   message: string
-  type: NOTI_TYPE
-  position: NOTI_POSITION
+
+  type: NotificationType
+  position: NotiPosition
   duration: number
 }
 
-export type NotiEvent = (options: NotiOptions) => void
+export type NotiEvent = (options: Partial<NotiOptions>) => void

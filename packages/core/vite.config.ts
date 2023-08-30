@@ -2,6 +2,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
+import dts from 'vite-plugin-dts'
 
 const name = 'index'
 
@@ -13,6 +14,7 @@ export default defineConfig({
   },
   plugins: [
     Vue(),
+    dts(),
   ],
   publicDir: false,
   build: {
