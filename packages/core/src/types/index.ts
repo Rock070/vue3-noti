@@ -1,5 +1,3 @@
-import type { Ref } from 'vue'
-
 export const enum NOTI_TYPE {
   SUCCESS = 'success',
   WARNING = 'warning',
@@ -48,14 +46,10 @@ export const enum NOTI_POSITION {
 }
 
 export interface NotiOptions {
+  message: string
   type: NOTI_TYPE
   position: NOTI_POSITION
-  timeout: number
+  duration: number
 }
 
-export interface NotiContext {
-  option: Ref<NotiOptions>
-  isShow: Ref<boolean>
-  toggleShow: (val?: boolean) => void
-  notifications: Ref<string>
-}
+export type NotiEvent = (options: NotiOptions) => void

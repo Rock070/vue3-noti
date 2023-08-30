@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "vite build -w",
+    "dev": "vite build -w && pnpm build:type",
     "typecheck": "vue-tsc --noEmit",
     "build:type": "vue-tsc -p tsconfig.build-dts.json --declaration --emitDeclarationOnly",
     "build": "vite build && pnpm build:type"
