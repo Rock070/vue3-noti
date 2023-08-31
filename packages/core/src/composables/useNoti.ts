@@ -1,9 +1,8 @@
-import { inject } from 'vue'
-
-import { INJECT_KEY } from '../constant'
-import type { NotiEvent } from '../types'
+import type { NotiOptions } from '../types'
+import useEventBus from './useEventBus'
 
 export function useNoti() {
-  const noti = inject(INJECT_KEY) as NotiEvent
+  const bus = useEventBus()
+  const noti = (options: NotiOptions) => bus.emit(options)
   return noti
 }

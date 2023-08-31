@@ -9,9 +9,16 @@ const noti = useNoti()
 
 function callNoti() {
   noti({
-    message: 'Hello world',
+    message: 'Hello World',
     type: 'success',
-    duration: 3000,
+  })
+}
+
+function callNoti2() {
+  noti({
+    duration: 5000,
+    message: 'Hello World Longer',
+    type: 'success',
   })
 }
 </script>
@@ -29,10 +36,14 @@ function callNoti() {
 
     <br>
     <Noti v-model:test="string" />
-
-    <button type="button" @click="callNoti">
-      notify
-    </button>
+    <div class="button-group">
+      <button type="button" @click="callNoti">
+        call default notify last 1 second
+      </button>
+      <button type="button" @click="callNoti2">
+        call custom notify last 5 second
+      </button>
+    </div>
   </div>
 </template>
 
@@ -52,5 +63,10 @@ function callNoti() {
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+.button-group {
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
 }
 </style>
