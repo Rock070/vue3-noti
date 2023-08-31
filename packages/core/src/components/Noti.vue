@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+
+import { useCounter } from '@vueuse/core'
 import { useNoti } from '../composables/useNoti'
 import useEventBus from '../composables/useEventBus'
-import { DEFAULT_SETTING } from '../constant'
+
+import { useNotiContext } from '../composables/useNotiContext'
 
 import type { NotiOptions } from '../types'
 
@@ -14,17 +17,18 @@ export interface NotiProps {
 
 defineProps<NotiProps>()
 
+const { options: initialOptions } = useNotiContext()
+const { inc: countIncrease } = useCounter(1)
+
 const noti = useNoti()
 
 if (!noti)
   console.warn('[@vue3-noti/core warning] useNoti is undefined')
 
-let count = 1
-
 const queue = ref<NotificationList>([])
 
 function publishEvent(options: NotiOptions) {
-  const item = { ...DEFAULT_SETTING, ...options, id: count++ }
+  const item = { ...initialOptions, ...options, id: countIncrease() }
   queue.value.push(item)
 
   const { id, duration } = item

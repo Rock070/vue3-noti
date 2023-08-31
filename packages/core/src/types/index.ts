@@ -47,7 +47,6 @@ export enum NOTI_POSITION {
   MIDDLE_RIGHT = 'middle-right',
 }
 
-// export type NotiPosition = ValueOf<NotiOptions>
 export type NotiPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'middle-top' | 'middle-left' | 'middle-right'
 
 export interface NotiOptions {
@@ -58,4 +57,6 @@ export interface NotiOptions {
   duration?: number
 }
 
-export type NotiEvent = (options: Partial<NotiOptions>) => void
+export interface NotiContext {
+  options: NotiOptions
+}
