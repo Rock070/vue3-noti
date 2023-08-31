@@ -53,9 +53,9 @@ export type NotiPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-l
 export interface NotiOptions {
   message: string
 
-  type: NotificationType
-  position: NotiPosition
-  duration: number
+  type?: NotificationType
+  position?: NotiPosition
+  duration?: number
 }
 
 export type NotiEvent = (options: Partial<NotiOptions>) => void
