@@ -50,11 +50,35 @@ export enum NOTI_POSITION {
 export type NotiPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'middle-top' | 'middle-left' | 'middle-right'
 
 export interface NotiOptions {
+  /**
+   * The title of the notification.
+   */
   message: string
 
+  /**
+   * The type of the notification.
+   */
   type?: NotificationType
+
+  /**
+   * The position of the notification.
+   */
   position?: NotiPosition
+
+  /**
+   * The duration of the notification.
+   */
   duration?: number
+
+  /**
+   * Whether to close when clicking on the notification.
+   */
+  closeOnClick?: boolean
+
+  /**
+   * Whether to pause on hover.
+   */
+  hoverPause?: boolean
 }
 
 export interface NotiContext {

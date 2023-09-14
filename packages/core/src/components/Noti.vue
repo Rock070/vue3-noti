@@ -9,8 +9,11 @@ import { useNotiContext } from '../composables/useNotiContext'
 import type { NotiOptions } from '../types'
 import AtomicProgress from './AtomicProgress.vue'
 
-export interface Notification extends NotiOptions {
-  id: number | string | symbol
+export interface NotiTimer {
+  /**
+   * Whether the notification timer is active
+   */
+  isActive: boolean
 
   /**
    * Time left (in milliseconds)
@@ -21,6 +24,11 @@ export interface Notification extends NotiOptions {
    * end count down timestamp
    */
   endCountDownTimestamp: number
+}
+
+export interface Notification extends NotiOptions {
+  id: number | string | symbol
+  timer: NotiTimer
 }
 
 export type NotificationList = Notification[]
@@ -35,17 +43,37 @@ const queue = ref<NotificationList>([])
  */
 const MS_PER_FRAME = 1000 / 60
 
+function triggerCountDown(target: Notification) {
+  const interval = setInterval(() => {
+    if (!target.timer.isActive)
+      clearInterval(interval)
+
+    const lastTime = target.timer.endCountDownTimestamp - Date.now()
+    if (lastTime > 0) {
+      target.timer.lastTime = lastTime
+    }
+    else {
+      target.timer.lastTime = 0
+      queue.value = queue.value.filter(item => item.id !== target.id)
+      clearInterval(interval)
+    }
+  }, MS_PER_FRAME)
+}
+
 function publishEvent(options: NotiOptions) {
   const item: Notification = {
     ...initialOptions,
     ...options,
-    lastTime: 0,
-    endCountDownTimestamp: 0,
     id: countIncrease(),
+    timer: {
+      isActive: true,
+      lastTime: 0,
+      endCountDownTimestamp: 0,
+    },
   }
 
-  item.lastTime = item.duration!
-  item.endCountDownTimestamp = item.duration! + Date.now()
+  item.timer.lastTime = item.duration!
+  item.timer.endCountDownTimestamp = item.duration! + Date.now()
 
   queue.value.push(item)
 
@@ -54,19 +82,20 @@ function publishEvent(options: NotiOptions) {
   if (!target)
     return
 
-  const { id, endCountDownTimestamp } = item
+  triggerCountDown(target)
+}
 
-  const interval = setInterval(() => {
-    const lastTime = endCountDownTimestamp - Date.now()
-    if (lastTime > 0) {
-      target.lastTime = lastTime
-    }
-    else {
-      target.lastTime = 0
-      queue.value = queue.value.filter(item => item.id !== id)
-      clearInterval(interval)
-    }
-  }, MS_PER_FRAME)
+function onMouseEnter(val: Notification) {
+  if (!val.hoverPause)
+    return
+  val.timer.isActive = false
+}
+function onMouseLeave(val: Notification) {
+  if (!val.hoverPause)
+    return
+  val.timer.isActive = true
+  val.timer.endCountDownTimestamp = val.timer.lastTime + Date.now()
+  triggerCountDown(val)
 }
 
 const bus = useEventBus()
@@ -76,11 +105,18 @@ bus.on(publishEvent)
 <template>
   <div class="vue3-noti">
     <div class="vue3-noti__container">
-      <div v-for="item in queue" :key="item.id" class="vue3-noti-group">
+      <div
+        v-for="item in queue"
+        :key="item.id"
+        class="vue3-noti-group"
+        @mouseenter="onMouseEnter(item)"
+        @mouseleave="onMouseLeave(item)"
+      >
         {{ item.message }}
-        <!-- id: {{ item.id }} -->
-        last: {{ item.lastTime }}
-        <AtomicProgress :value="item.lastTime" :max="item.duration" />
+        <AtomicProgress
+          :value="item.timer.lastTime"
+          :max="item.duration"
+        />
       </div>
     </div>
   </div>
