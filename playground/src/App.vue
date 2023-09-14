@@ -1,48 +1,59 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Noti, useNoti } from '@vue3-noti/core'
+import type { NotiOptions } from '@vue3-noti/core'
 import '@vue3-noti/core/style.css'
-
-const string = ref('')
 
 const noti = useNoti()
 
-function callNoti() {
-  noti({
-    message: 'Hello World',
-    type: 'success',
-  })
-}
+const options = ref<NotiOptions>({
+  message: 'Hello Noti',
+  duration: 3e3,
+  hoverPause: true,
+  showProgressBar: true,
 
-function callNoti2() {
-  noti({
-    duration: 5000,
-    message: 'Hello World Longer',
-    type: 'success',
-  })
-}
+  closeOnClick: true,
+  position: 'top-right',
+  type: 'info',
+})
 </script>
 
 <template>
   <div class="playground">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo">
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
-    </a>
     <h1> Vue3-Noti </h1>
+    <Noti />
     <br>
+    <button
+      type="button"
+      class="noti-button"
+      @click="noti(options)"
+    >
+      notify
+    </button>
+    <div class="control-panel">
+      <!-- message -->
+      <div class="field-group">
+        <label for="message">message: </label>
+        <input id="message" v-model="options.message" type="text">
+      </div>
 
-    <br>
-    <Noti v-model:test="string" />
-    <div class="button-group">
-      <button type="button" @click="callNoti">
-        call default notify last 1 second
-      </button>
-      <button type="button" @click="callNoti2">
-        call custom notify last 5 second
-      </button>
+      <div class="field-group">
+        <!-- duration -->
+        <label for="duration">duration(ms): </label>
+        <input id="duration" v-model="options.duration" type="number" min="0">
+      </div>
+
+      <div class="field-group">
+        <!-- showProgressBar -->
+        <label for="showProgressBar">showProgressBar </label>
+        <input id="showProgressBar" v-model="options.showProgressBar" type="checkbox">
+      </div>
+
+      <div class="field-group">
+        <!-- hoverPause -->
+        <label for="hoverPause">hoverPause </label>
+        <input id="hoverPause" v-model="options.hoverPause" type="checkbox">
+      </div>
     </div>
   </div>
 </template>
@@ -52,21 +63,25 @@ function callNoti2() {
   height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.noti-button {
+  margin-bottom: 2em;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-.button-group {
-  display: flex;
+
+.control-panel {
+  display: grid;
   gap: 1em;
-  margin-top: 1em;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.field-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 1em;
+  margin: 1em 0;
+}
+
+label {
+  cursor: pointer;
 }
 </style>
