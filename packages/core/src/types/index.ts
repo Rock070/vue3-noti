@@ -71,6 +71,11 @@ export interface NotiOptions {
   duration?: number
 
   /**
+   * Whether to show the progress bar.
+   */
+  showProgressBar?: boolean
+
+  /**
    * Whether to close when clicking on the notification.
    */
   closeOnClick?: boolean

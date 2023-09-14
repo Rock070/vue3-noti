@@ -114,6 +114,7 @@ bus.on(publishEvent)
       >
         {{ item.message }}
         <AtomicProgress
+          v-if="item.showProgressBar"
           :value="item.timer.lastTime"
           :max="item.duration"
         />

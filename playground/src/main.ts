@@ -10,6 +10,7 @@ const notiOptions: NotiOptions = {
   duration: 1000,
   position: 'top-right',
   hoverPause: true,
+  showProgressBar: true,
 }
 
 createApp(App).use(NotiPlugin, notiOptions).mount('#app')
