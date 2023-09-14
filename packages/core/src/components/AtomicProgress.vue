@@ -1,12 +1,12 @@
 <script setup lang="ts">
 interface AtomicProgressProps {
   /**
-   * 進度值
+   * progress value
    */
   value?: number
 
   /**
-   * 上限值
+   * max value
    */
   max?: number
 }
