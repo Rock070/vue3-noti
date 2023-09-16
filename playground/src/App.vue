@@ -14,7 +14,7 @@ const options = ref<NotiOptions>({
 
   closeOnClick: true,
   position: 'top-right',
-  type: 'info',
+  type: 'success',
 })
 
 const durationSecond = computed(() => {
@@ -28,8 +28,6 @@ const durationSecond = computed(() => {
 <template>
   <div class="playground">
     <h1> Vue3-Noti </h1>
-    {{ options }}
-    {{ typeof options.duration }}
     <Noti />
     <br>
     <button
@@ -96,6 +94,26 @@ const durationSecond = computed(() => {
         <div class="field-group">
           <label for="position-middle-bottom">middle-bottom: </label>
           <input id="position-middle-bottom" v-model="options.position" value="middle-bottom" name="position" type="radio">
+        </div>
+      </div>
+
+      <div class="radio-group">
+        <!-- type -->
+        <div class="field-group">
+          <label for="type-success">success: </label>
+          <input id="type-success" v-model="options.type" value="success" name="type" type="radio">
+        </div>
+        <div class="field-group">
+          <label for="type-info">info: </label>
+          <input id="type-info" v-model="options.type" value="info" name="type" type="radio">
+        </div>
+        <div class="field-group">
+          <label for="type-warning">warning: </label>
+          <input id="type-warning" v-model="options.type" value="warning" name="type" type="radio">
+        </div>
+        <div class="field-group">
+          <label for="type-error">error: </label>
+          <input id="type-error" v-model="options.type" value="error" name="type" type="radio">
         </div>
       </div>
     </div>
