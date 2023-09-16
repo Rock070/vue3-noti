@@ -72,8 +72,8 @@ const durationSecond = computed(() => {
       <div class="radio-group">
         <!-- position -->
         <div class="field-group">
-          <label for="position-success">success: </label>
-          <input id="position-success" v-model="options.position" value="success" name="position" type="radio">
+          <label for="position-top-right">top-right: </label>
+          <input id="position-top-right" v-model="options.position" value="top-right" name="position" type="radio">
         </div>
         <div class="field-group">
           <label for="position-top-left">top-left: </label>
