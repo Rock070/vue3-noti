@@ -89,3 +89,28 @@ export interface NotiOptions {
 export interface NotiContext {
   options: NotiOptions
 }
+
+export interface NotiTimer {
+
+  /**
+   * interval ID
+   */
+  intervalID: NodeJS.Timeout | undefined
+
+  /**
+   * Time left (in milliseconds)
+   */
+  lastTime: number
+
+  /**
+   * end count down timestamp
+   */
+  endCountDownTimestamp: number
+}
+
+export interface Notification extends NotiOptions {
+  id: number | string | symbol
+  timer: NotiTimer
+}
+
+export type NotiGroup = Record<NotiPosition, Notification[]>

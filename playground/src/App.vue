@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { Noti, useNoti } from '@vue3-noti/core'
 import type { NotiOptions } from '@vue3-noti/core'
 import '@vue3-noti/core/style.css'
@@ -15,6 +15,13 @@ const options = ref<NotiOptions>({
   closeOnClick: true,
   position: 'top-right',
   type: 'info',
+})
+
+const durationSecond = computed(() => {
+  if (options.value.duration === undefined)
+    return 0
+
+  return options.value.duration / 1000
 })
 </script>
 
@@ -40,24 +47,25 @@ const options = ref<NotiOptions>({
       <div class="field-group">
         <!-- duration -->
         <label for="duration">duration(ms): </label>
-        <input id="duration" v-model="options.duration" type="number" min="0">
+        <input id="duration" v-model="options.duration" type="range" min="1000" max="20000" step="100">
+        {{ durationSecond }} s
       </div>
 
       <div class="field-group">
         <!-- showProgressBar -->
-        <label for="showProgressBar">showProgressBar </label>
+        <label for="showProgressBar">showProgressBar: </label>
         <input id="showProgressBar" v-model="options.showProgressBar" type="checkbox">
       </div>
 
       <div class="field-group">
         <!-- hoverPause -->
-        <label for="hoverPause">hoverPause </label>
+        <label for="hoverPause">hoverPause: </label>
         <input id="hoverPause" v-model="options.hoverPause" type="checkbox">
       </div>
 
       <div class="field-group">
         <!-- closeOnClick -->
-        <label for="closeOnClick">closeOnClick </label>
+        <label for="closeOnClick">closeOnClick: </label>
         <input id="closeOnClick" v-model="options.closeOnClick" type="checkbox">
       </div>
     </div>
@@ -81,7 +89,7 @@ const options = ref<NotiOptions>({
 
 .field-group {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 0 1em;
   margin: 1em 0;
