@@ -54,6 +54,12 @@ const options = ref<NotiOptions>({
         <label for="hoverPause">hoverPause </label>
         <input id="hoverPause" v-model="options.hoverPause" type="checkbox">
       </div>
+
+      <div class="field-group">
+        <!-- closeOnClick -->
+        <label for="closeOnClick">closeOnClick </label>
+        <input id="closeOnClick" v-model="options.closeOnClick" type="checkbox">
+      </div>
     </div>
   </div>
 </template>
