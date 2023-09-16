@@ -33,14 +33,13 @@ withDefaults(defineProps<AtomicProgressProps>(), {
   border-radius: 10px;
   height: 4px;
   overflow: hidden;
-
-}
-
-.vue3-noti__progress::-webkit-progress-value {
-  background-color: #0235E6
 }
 
 .vue3-noti__progress::-webkit-progress-bar {
-  background: gray;
+  background-color: var(--progress-bg-color)
+}
+
+.vue3-noti__progress::-webkit-progress-value {
+  background: var(--progress-value-color);
 }
 </style>

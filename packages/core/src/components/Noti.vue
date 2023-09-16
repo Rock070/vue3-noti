@@ -179,8 +179,23 @@ bus.on(publishEvent)
 </template>
 
 <style>
-.vue3-noti {
+:root {
   --padding: 16px;
+
+  --success-color: #74F246;
+  --success-text-color: black;
+
+  --info-color: #3585F2;
+  --info-text-color: white;
+
+  --warning-color: #E8D943;
+  --warning-text-color: white;
+
+  --error-color: #ED4D4C;
+  --error-text-color: white;
+
+  --progress-bg-color: black;
+  --progress-value-color: #fdd;
 }
 
 .vue3-noti .vue3-noti-group {
@@ -228,10 +243,29 @@ bus.on(publishEvent)
   position: relative;
   font-size: 32px;
   background-color: chartreuse;
-  color: black;
   border-radius: 12px;
   padding: 10px 20px;
   overflow: hidden;
+}
+
+.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--success {
+  background-color: var(--success-color);
+  color: var(--success-text-color);
+}
+
+.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--info {
+  background-color: var(--info-color);
+  color: var(--info-text-color);
+}
+
+.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--warning {
+  background-color: var(--warning-color);
+  color: var(--warning-text-color);
+}
+
+.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--error {
+  background-color: var(--error-color);
+  color: var(--error-text-color);
 }
 
 .vue3-noti .vue3-noti__progress {
