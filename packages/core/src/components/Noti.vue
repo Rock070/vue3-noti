@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 import { useCounter } from '@vueuse/core'
+
 import useEventBus from '../composables/useEventBus'
 
 import { useNotiContext } from '../composables/useNotiContext'
@@ -10,10 +11,11 @@ import type { NotiOptions } from '../types'
 import AtomicProgress from './AtomicProgress.vue'
 
 export interface NotiTimer {
+
   /**
-   * Whether the notification timer is active
+   * interval ID
    */
-  isActive: boolean
+  intervalID: NodeJS.Timeout | undefined
 
   /**
    * Time left (in milliseconds)
@@ -45,9 +47,6 @@ const MS_PER_FRAME = 1000 / 60
 
 function triggerCountDown(target: Notification) {
   const interval = setInterval(() => {
-    if (!target.timer.isActive)
-      clearInterval(interval)
-
     const lastTime = target.timer.endCountDownTimestamp - Date.now()
     if (lastTime > 0) {
       target.timer.lastTime = lastTime
@@ -58,6 +57,12 @@ function triggerCountDown(target: Notification) {
       clearInterval(interval)
     }
   }, MS_PER_FRAME)
+
+  target.timer.intervalID = interval
+}
+
+function clearCountDown(timer: NodeJS.Timeout) {
+  clearInterval(timer)
 }
 
 function publishEvent(options: NotiOptions) {
@@ -66,8 +71,8 @@ function publishEvent(options: NotiOptions) {
     ...options,
     id: countIncrease(),
     timer: {
-      isActive: true,
       lastTime: 0,
+      intervalID: undefined,
       endCountDownTimestamp: 0,
     },
   }
@@ -86,16 +91,25 @@ function publishEvent(options: NotiOptions) {
 }
 
 function onMouseEnter(val: Notification) {
-  if (!val.hoverPause)
+  if (!val.hoverPause || val.timer.intervalID === undefined)
     return
-  val.timer.isActive = false
+
+  clearCountDown(val.timer.intervalID)
 }
 function onMouseLeave(val: Notification) {
   if (!val.hoverPause)
     return
-  val.timer.isActive = true
+
   val.timer.endCountDownTimestamp = val.timer.lastTime + Date.now()
   triggerCountDown(val)
+}
+
+function onClick(val: Notification) {
+  if (!val.closeOnClick || val.timer.intervalID === undefined)
+    return
+
+  clearCountDown(val.timer.intervalID)
+  queue.value = queue.value.filter(item => item.id !== val.id)
 }
 
 const bus = useEventBus()
@@ -111,6 +125,7 @@ bus.on(publishEvent)
         class="vue3-noti-group"
         @mouseenter="onMouseEnter(item)"
         @mouseleave="onMouseLeave(item)"
+        @click="onClick(item)"
       >
         {{ item.message }}
         <AtomicProgress
