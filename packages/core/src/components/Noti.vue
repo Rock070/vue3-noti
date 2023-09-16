@@ -7,31 +7,8 @@ import useEventBus from '../composables/useEventBus'
 
 import { useNotiContext } from '../composables/useNotiContext'
 
-import type { NotiOptions } from '../types'
+import type { NotiOptions, Notification } from '../types'
 import AtomicProgress from './AtomicProgress.vue'
-
-export interface NotiTimer {
-
-  /**
-   * interval ID
-   */
-  intervalID: NodeJS.Timeout | undefined
-
-  /**
-   * Time left (in milliseconds)
-   */
-  lastTime: number
-
-  /**
-   * end count down timestamp
-   */
-  endCountDownTimestamp: number
-}
-
-export interface Notification extends NotiOptions {
-  id: number | string | symbol
-  timer: NotiTimer
-}
 
 export type NotificationList = Notification[]
 
@@ -45,27 +22,33 @@ const queue = ref<NotificationList>([])
  */
 const MS_PER_FRAME = 1000 / 60
 
+function clearCountDown(timer: NodeJS.Timeout) {
+  clearInterval(timer)
+}
+
+function closeNoti(val: Notification) {
+  if (val.timer.intervalID !== undefined)
+    clearCountDown(val.timer.intervalID)
+
+  queue.value = queue.value.filter(item => item.id !== val.id)
+}
+
 function triggerCountDown(target: Notification) {
   const interval = setInterval(() => {
     const lastTime = target.timer.endCountDownTimestamp - Date.now()
     if (lastTime > 0) {
       target.timer.lastTime = lastTime
+      return
     }
-    else {
-      target.timer.lastTime = 0
-      queue.value = queue.value.filter(item => item.id !== target.id)
-      clearInterval(interval)
-    }
+
+    target.timer.lastTime = 0
+    closeNoti(target)
   }, MS_PER_FRAME)
 
   target.timer.intervalID = interval
 }
 
-function clearCountDown(timer: NodeJS.Timeout) {
-  clearInterval(timer)
-}
-
-function publishEvent(options: NotiOptions) {
+function makeNoti(options: NotiOptions): Notification {
   const item: Notification = {
     ...initialOptions,
     ...options,
@@ -80,6 +63,11 @@ function publishEvent(options: NotiOptions) {
   item.timer.lastTime = item.duration!
   item.timer.endCountDownTimestamp = item.duration! + Date.now()
 
+  return item
+}
+
+function publishEvent(options: NotiOptions) {
+  const item = makeNoti(options)
   queue.value.push(item)
 
   const target = queue.value.find(i => i.id === item.id)
@@ -118,7 +106,7 @@ bus.on(publishEvent)
 
 <template>
   <div class="vue3-noti">
-    <div class="vue3-noti__container">
+    <div class="vue3-noti__group">
       <div
         v-for="item in queue"
         :key="item.id"
@@ -139,7 +127,7 @@ bus.on(publishEvent)
 </template>
 
 <style>
-.vue3-noti .vue3-noti__container {
+.vue3-noti .vue3-noti__group {
   position: fixed;
   bottom: 16px;
   right: 16px;
@@ -149,7 +137,7 @@ bus.on(publishEvent)
   gap: 16px;
   z-index: 9999;
 }
-.vue3-noti .vue3-noti__container .vue3-noti-group {
+.vue3-noti .vue3-noti__group .vue3-noti-group {
   position: relative;
   font-size: 32px;
   background-color: chartreuse;
