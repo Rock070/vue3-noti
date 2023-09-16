@@ -28,8 +28,6 @@ const durationSecond = computed(() => {
 <template>
   <div class="playground">
     <h1> Vue3-Noti </h1>
-    {{ options }}
-    {{ typeof options.duration }}
     <Noti />
     <br>
     <button
