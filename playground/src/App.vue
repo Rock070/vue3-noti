@@ -8,7 +8,7 @@ const noti = useNoti()
 
 const options = ref<NotiOptions>({
   message: 'Hello Noti',
-  duration: 3e3,
+  duration: 2e3,
   hoverPause: true,
   showProgressBar: true,
 
@@ -28,6 +28,8 @@ const durationSecond = computed(() => {
 <template>
   <div class="playground">
     <h1> Vue3-Noti </h1>
+    {{ options }}
+    {{ typeof options.duration }}
     <Noti />
     <br>
     <button
@@ -68,6 +70,34 @@ const durationSecond = computed(() => {
         <label for="closeOnClick">closeOnClick: </label>
         <input id="closeOnClick" v-model="options.closeOnClick" type="checkbox">
       </div>
+      <div />
+      <div class="radio-group">
+        <!-- position -->
+        <div class="field-group">
+          <label for="position-top-right">top-right: </label>
+          <input id="position-top-right" v-model="options.position" value="top-right" name="position" type="radio">
+        </div>
+        <div class="field-group">
+          <label for="position-top-left">top-left: </label>
+          <input id="position-top-left" v-model="options.position" value="top-left" name="position" type="radio">
+        </div>
+        <div class="field-group">
+          <label for="position-bottom-right">bottom-right: </label>
+          <input id="position-bottom-right" v-model="options.position" value="bottom-right" name="position" type="radio">
+        </div>
+        <div class="field-group">
+          <label for="position-bottom-left">bottom-left: </label>
+          <input id="position-bottom-left" v-model="options.position" value="bottom-left" name="position" type="radio">
+        </div>
+        <div class="field-group">
+          <label for="position-middle-top">middle-top: </label>
+          <input id="position-middle-top" v-model="options.position" value="middle-top" name="position" type="radio">
+        </div>
+        <div class="field-group">
+          <label for="position-middle-bottom">middle-bottom: </label>
+          <input id="position-middle-bottom" v-model="options.position" value="middle-bottom" name="position" type="radio">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -93,6 +123,15 @@ const durationSecond = computed(() => {
   align-items: center;
   gap: 0 1em;
   margin: 1em 0;
+}
+
+.radio-group {
+  border: 1px solid #ccc;
+  padding: 0 1em;
+  grid-column: span 2 / span 2;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 label {
