@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   modules: ['@nuxt/content', '@unocss/nuxt'],
   extends: ['@nuxt-themes/docus'],
-  ssr: false,
   imports: {
     transform: {
       // you could also add the path of your built library to prevent this happening
