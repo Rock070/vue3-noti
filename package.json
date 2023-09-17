@@ -11,7 +11,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "pnpm --filter @vue3-noti/core typecheck",
     "dev": "pnpm -r --parallel run dev",
-    "build": "pnpm -r --parallel run build",
+    "build": "pnpm --filter @vue3-noti/core build && pnpm --filter docs build",
     "play": "cd playground && pnpm dev"
   },
   "devDependencies": {
