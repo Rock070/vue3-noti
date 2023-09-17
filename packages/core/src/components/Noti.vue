@@ -173,8 +173,8 @@ bus.on(publishEvent)
 :root {
   --padding: 16px;
 
-  --success-color: #74F246;
-  --success-text-color: black;
+  --success-color: #4caf50;
+  --success-text-color: white;
 
   --info-color: #3585F2;
   --info-text-color: white;
@@ -184,9 +184,6 @@ bus.on(publishEvent)
 
   --error-color: #ED4D4C;
   --error-text-color: white;
-
-  --progress-bg-color: black;
-  --progress-value-color: #fdd;
 }
 
 .vue3-noti .vue3-noti-group {
@@ -232,31 +229,39 @@ bus.on(publishEvent)
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item {
   position: relative;
-  font-size: 32px;
+  width: 33vw;
   background-color: chartreuse;
-  border-radius: 12px;
-  padding: 10px 20px;
+  border-radius: 6px;
+  padding: 14px 20px;
   overflow: hidden;
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--success {
   background-color: var(--success-color);
   color: var(--success-text-color);
+
+  --progress-color: var(--success-color);
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--info {
   background-color: var(--info-color);
   color: var(--info-text-color);
+
+  --progress-color: var(--info-color);
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--warning {
   background-color: var(--warning-color);
   color: var(--warning-text-color);
+
+  --progress-color: var(--warning-color);
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--error {
   background-color: var(--error-color);
   color: var(--error-text-color);
+
+  --progress-color: var(--error-color);
 }
 
 .vue3-noti .vue3-noti__progress {
