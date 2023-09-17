@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Noti, useNoti } from '@vue3-noti/core'
-import type { NotiOptions } from '@vue3-noti/core'
-import '@vue3-noti/core/style.css'
 
-const noti = useNoti()
+import { useNoti } from '@vue3-noti/core'
+
+import type { NotiOptions } from '@vue3-noti/core'
 
 const options = ref<NotiOptions>({
   message: 'Hello Noti',
@@ -23,19 +22,20 @@ const durationSecond = computed(() => {
 
   return options.value.duration / 1000
 })
+
+const noti = useNoti()
 </script>
 
 <template>
   <div class="playground">
     <h1> Vue3-Noti </h1>
-    <Noti />
     <br>
     <button
       type="button"
       class="noti-button"
       @click="noti(options)"
     >
-      notify
+      Fire Notify!
     </button>
     <div class="control-panel">
       <!-- message -->
@@ -122,37 +122,67 @@ const durationSecond = computed(() => {
 
 <style>
 .playground {
-  height: 100vh;
+  @apply flex flex-col;
+  @apply bg-[#242424];
+  @apply items-center;
+  @apply text-white/87;
+  @apply leading-6;
+
+  @apply h-screen;
+
+  color-scheme: light dark;
+}
+
+.playground h1 {
+  @apply text-3xl;
+  @apply font-bold;
+  @apply my-4;
+}
+
+.playground input {
+  @apply px-[2px];
+  @apply py-[1px];
+}
+
+.playground button {
+  @apply rounded-md;
+  @apply border border-transparent;
+  @apply py-2 px-4;
+  @apply text-base font-medium;
+  @apply bg-[#1a1a1a];
+  @apply transition duration-150 ease-in-out;
+  @apply hover:bg-gray-700;
 }
 
 .noti-button {
-  margin-bottom: 2em;
+  @apply mb-2;
 }
 
 .control-panel {
-  display: grid;
-  gap: 1em;
-  grid-template-columns: repeat(2, 1fr);
+  @apply grid;
+  @apply gap-4;
+  @apply grid-cols-2;
 }
 
 .field-group {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0 1em;
-  margin: 1em 0;
+  @apply flex;
+  @apply justify-start;
+  @apply items-center;
+  @apply gap-x-4;
+  @apply my-4;
 }
 
 .radio-group {
-  border: 1px solid #ccc;
-  padding: 0 1em;
-  grid-column: span 2 / span 2;
-  display: grid;
-  gap: 1em;
-  grid-template-columns: repeat(3, 1fr);
+  @apply border border-gray-300;
+  @apply px-4;
+  @apply col-span-2;
+  @apply grid;
+  @apply gap-4;
+  @apply grid-cols-3;
+
 }
 
 label {
-  cursor: pointer;
+  @apply cursor-pointer
 }
 </style>

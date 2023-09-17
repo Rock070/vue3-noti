@@ -29,8 +29,11 @@
     "typecheck": "vue-tsc --noEmit",
     "build": "vite build"
   },
+  "peerDependencies": {
+    "@vueuse/core": ">=10.3.0",
+    "vue": ">=3.3.4"
+  },
   "dependencies": {
-    "@vueuse/core": "^10.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
