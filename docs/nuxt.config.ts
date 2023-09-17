@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@unocss/nuxt'],
+  modules: ['@unocss/nuxt'],
   extends: ['@nuxt-themes/docus'],
   imports: {
     transform: {
