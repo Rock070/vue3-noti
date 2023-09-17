@@ -130,16 +130,7 @@ function onClick(val: Notification) {
     return
 
   clearCountDown(val.timer.intervalID)
-
-  const belongGroup = findBelongGroup(val)
-  if (!belongGroup)
-    return
-  const index = belongGroup.findIndex(item => item.id === val.id)
-
-  if (index === -1)
-    return
-
-  belongGroup.splice(index, 0)
+  removeNotiFromGroup(val)
 }
 
 const bus = useEventBus()
