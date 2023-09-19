@@ -13,4 +13,10 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true,
   },
+  devtools: {
+    enabled: true,
+    componentInspector: {
+      toggleComboKey: 'control-c',
+    },
+  },
 })
