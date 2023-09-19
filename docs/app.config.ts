@@ -9,7 +9,7 @@ export default defineAppConfig({
     header: {
       showLinkIcon: false,
       logo: 'Logo',
-      exclude: ['/playground'],
+      exclude: ['Getting Started'],
     },
     footer: {
       credits: {

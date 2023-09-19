@@ -30,46 +30,72 @@ const noti = useNoti()
   <div>
     <AppHeader />
     <main class="playground">
-      <h1> Vue3-Noti </h1>
-      <button
-        type="button"
-        class="noti-button"
-        @click="noti(options)"
-      >
-        Fire Notify!
-      </button>
-      <div class="control-panel">
-        <!-- message -->
-        <div class="field-group">
-          <label for="message">message: </label>
-          <input id="message" v-model="options.message" type="text">
+      <h1 class="sr-only">
+        Vue3-Noti
+      </h1>
+      <h2>
+        Clickable Button
+      </h2>
+      <div class="flex gap-x-3 sticky top-20 z-10">
+        <button
+          :key="i"
+          type="button"
+          class="noti-button"
+          @click="noti(options)"
+        >
+          Fire Notify
+        </button>
+      </div>
+      <h2>
+        Live Code
+      </h2>
+      <div class="w-full">
+        <ProsePre language="js" filename="vue3-noti.vue">
+          import { useNoti } from '@vue3-noti/core';
+          <br>
+          const noti = useNoti();
+          <br>
+          noti({{ options }})
+        </ProsePre>
+      </div>
+
+      <h2>
+        Options
+      </h2>
+      <div class="playground__container">
+        <div class="control-panel">
+          <!-- message -->
+          <div class="field-group">
+            <label for="message">message: </label>
+            <input id="message" v-model="options.message" type="text">
+          </div>
+
+          <div class="field-group">
+            <!-- duration -->
+            <label for="duration">duration(ms): </label>
+            <input id="duration" v-model="options.duration" type="range" min="1000" max="20000" step="100">
+            {{ durationSecond }} s
+          </div>
+
+          <div class="field-group">
+            <!-- showProgressBar -->
+            <label for="showProgressBar">showProgressBar: </label>
+            <input id="showProgressBar" v-model="options.showProgressBar" type="checkbox">
+          </div>
+
+          <div class="field-group">
+            <!-- hoverPause -->
+            <label for="hoverPause">hoverPause: </label>
+            <input id="hoverPause" v-model="options.hoverPause" type="checkbox">
+          </div>
+
+          <div class="field-group">
+            <!-- closeOnClick -->
+            <label for="closeOnClick">closeOnClick: </label>
+            <input id="closeOnClick" v-model="options.closeOnClick" type="checkbox">
+          </div>
         </div>
 
-        <div class="field-group">
-          <!-- duration -->
-          <label for="duration">duration(ms): </label>
-          <input id="duration" v-model="options.duration" type="range" min="1000" max="20000" step="100">
-          {{ durationSecond }} s
-        </div>
-
-        <div class="field-group">
-          <!-- showProgressBar -->
-          <label for="showProgressBar">showProgressBar: </label>
-          <input id="showProgressBar" v-model="options.showProgressBar" type="checkbox">
-        </div>
-
-        <div class="field-group">
-          <!-- hoverPause -->
-          <label for="hoverPause">hoverPause: </label>
-          <input id="hoverPause" v-model="options.hoverPause" type="checkbox">
-        </div>
-
-        <div class="field-group">
-          <!-- closeOnClick -->
-          <label for="closeOnClick">closeOnClick: </label>
-          <input id="closeOnClick" v-model="options.closeOnClick" type="checkbox">
-        </div>
-        <div />
         <div class="radio-group">
           <!-- position -->
           <div class="field-group">
@@ -119,17 +145,22 @@ const noti = useNoti()
         </div>
       </div>
     </main>
+
     <AppFooter />
   </div>
 </template>
 
 <style>
 .playground {
+  @apply relative;
+  @apply py-10;
+  @apply px-4;
   @apply flex flex-col;
   @apply items-center;
   @apply leading-6;
+  @apply min-h-screen;
 
-  @apply h-screen;
+  @apply md:px-10;
 }
 
 .playground h1 {
@@ -137,6 +168,12 @@ const noti = useNoti()
   @apply font-bold;
   @apply mt-4;
   @apply mb-10;
+}
+.playground h2 {
+  @apply text-left;
+  @apply w-full;
+  @apply text-xl;
+  @apply font-bold
 }
 
 .playground input {
@@ -158,27 +195,47 @@ const noti = useNoti()
   @apply mb-2;
 }
 
+.playground .playground__container {
+  @apply w-full;
+  @apply space-y-4;
+}
+
 .playground .control-panel {
-  @apply grid;
-  @apply gap-4;
-  @apply grid-cols-2;
+  @apply w-full;
+  @apply flex flex-col;
+  @apply gap-1;
+  @apply px-4;
+
+  @apply md:grid;
+  @apply md:grid-cols-2;
+
+  @apply lg:gap-4;
+  @apply lg:grid-cols-3;
 }
 
 .playground .field-group {
   @apply flex;
   @apply justify-start;
   @apply items-center;
-  @apply gap-x-4;
-  @apply my-4;
+  @apply gap-x-2;
+  @apply my-2;
+
+  @apply md:my-4;
+  @apply md:gap-x-4;
 }
 
 .playground .radio-group {
   @apply border border-gray-300;
+  @apply w-full;
   @apply px-4;
   @apply col-span-2;
   @apply grid;
-  @apply gap-4;
-  @apply grid-cols-3;
+  @apply gap-1;
+
+  @apply grid-cols-2;
+
+  @apply md:gap-4;
+  @apply md:grid-cols-3;
 
 }
 
