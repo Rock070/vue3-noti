@@ -148,22 +148,25 @@ bus.on(publishEvent)
         class="vue3-noti-group"
         :class="[`vue3-noti-group--${position}`]"
       >
-        <div
+        <template
           v-for="item in group"
           :key="item.id"
-          class="vue3-noti-group__item"
-          :class="[`vue3-noti-group-item--${item.type}`]"
-          @mouseenter="onMouseEnter(item)"
-          @mouseleave="onMouseLeave(item)"
-          @click="onClick(item)"
         >
-          {{ item.message }}
-          <AtomicProgress
-            v-if="item.showProgressBar"
-            :value="item.timer.lastTime"
-            :max="item.duration"
-          />
-        </div>
+          <div
+            class="vue3-noti-group__item"
+            :class="[`vue3-noti-group-item--${item.type}`]"
+            @mouseenter="onMouseEnter(item)"
+            @mouseleave="onMouseLeave(item)"
+            @click="onClick(item)"
+          >
+            {{ item.message }}
+            <AtomicProgress
+              v-if="item.showProgressBar"
+              :value="item.timer.lastTime"
+              :max="item.duration"
+            />
+          </div>
+        </template>
       </div>
     </template>
   </div>
@@ -171,19 +174,35 @@ bus.on(publishEvent)
 
 <style>
 :root {
-  --padding: 16px;
+  --vue3-noti-success-color: #4caf50;
+  --vue3-noti-success-text-color: white;
 
-  --success-color: #4caf50;
-  --success-text-color: white;
+  --vue3-noti-info-color: #3585F2;
+  --vue3-noti-info-text-color: white;
 
-  --info-color: #3585F2;
-  --info-text-color: white;
+  --vue3-noti-warning-color: #E8D943;
+  --vue3-noti-warning-text-color: white;
 
-  --warning-color: #E8D943;
-  --warning-text-color: white;
+  --vue3-noti-error-color: #ED4D4C;
+  --vue3-noti-error-text-color: white;
 
-  --error-color: #ED4D4C;
-  --error-text-color: white;
+  --vue3-noti-group-gap: 16px;
+
+  @media screen and (width >= 0px) {
+    --vue3-noti-border-radius: 0px;
+    --vue3-noti-offset: 0px;
+    --vue3-noti-width: 100vw;
+  }
+
+  @media screen and (width >= 640px) {
+    --vue3-noti-offset: 16px;
+    --vue3-noti-border-radius: 6px;
+    --vue3-noti-width: 45vw;
+  }
+
+  @media screen and (width >= 768px) {
+    --vue3-noti-width: 33vw;
+  }
 }
 
 .vue3-noti .vue3-noti-group {
@@ -191,77 +210,77 @@ bus.on(publishEvent)
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: var(--padding);
+  gap: var(--vue3-noti-group-gap);
   z-index: 9999;
 }
 
 .vue3-noti .vue3-noti-group--top-right {
-  top: var(--padding);
-  right: var(--padding);
+  top: var(--vue3-noti-offset);
+  right: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--top-left {
-  top: var(--padding);
-  left: var(--padding);
+  top: var(--vue3-noti-offset);
+  left: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--bottom-right {
-  bottom: var(--padding);
-  right: var(--padding);
+  bottom: var(--vue3-noti-offset);
+  right: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--bottom-left {
-  bottom: var(--padding);
-  left: var(--padding);
+  bottom: var(--vue3-noti-offset);
+  left: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--middle-top {
   left: 50%;
   transform: translateX(-50%);
-  top: var(--padding);
+  top: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--middle-bottom {
   left: 50%;
   transform: translateX(-50%);
-  bottom: var(--padding);
+  bottom: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item {
   position: relative;
-  width: 33vw;
+  width: var(--vue3-noti-width);
   background-color: chartreuse;
-  border-radius: 6px;
+  border-radius: var(--vue3-noti-border-radius);
   padding: 14px 20px;
   overflow: hidden;
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--success {
-  background-color: var(--success-color);
-  color: var(--success-text-color);
+  background-color: var(--vue3-noti-success-color);
+  color: var(--vue3-noti-success-text-color);
 
-  --progress-color: var(--success-color);
+  --vue3-noti-progress-color: var(--vue3-noti-success-color);
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--info {
-  background-color: var(--info-color);
-  color: var(--info-text-color);
+  background-color: var(--vue3-noti-info-color);
+  color: var(--vue3-noti-info-text-color);
 
-  --progress-color: var(--info-color);
+  --vue3-noti-progress-color: var(--vue3-noti-info-color);
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--warning {
-  background-color: var(--warning-color);
-  color: var(--warning-text-color);
+  background-color: var(--vue3-noti-warning-color);
+  color: var(--vue3-noti-warning-text-color);
 
-  --progress-color: var(--warning-color);
+  --vue3-noti-progress-color: var(--vue3-noti-warning-color);
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--error {
-  background-color: var(--error-color);
-  color: var(--error-text-color);
+  background-color: var(--vue3-noti-error-color);
+  color: var(--vue3-noti-error-text-color);
 
-  --progress-color: var(--error-color);
+  --vue3-noti-progress-color: var(--vue3-noti-error-color);
 }
 
 .vue3-noti .vue3-noti__progress {

@@ -36,11 +36,11 @@ withDefaults(defineProps<AtomicProgressProps>(), {
 }
 
 .vue3-noti__progress::-webkit-progress-bar {
-  background-color: var(--progress-color);
+  background-color: var(--vue3-noti-progress-color);
 }
 
 .vue3-noti__progress::-webkit-progress-value {
-  background-color: var(--progress-color);
+  background-color: var(--vue3-noti-progress-color);
   filter: contrast(105%) brightness(150%);
 }
 </style>
