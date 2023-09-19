@@ -1,12 +1,14 @@
 import type { InjectionKey } from 'vue'
 import type { NotiContext, NotiOptions, NotiPositionTuple } from './types'
-import { NOTI_TYPE } from './types'
 
 export const DEFAULT_SETTING: NotiOptions = {
   message: '',
-  type: NOTI_TYPE.SUCCESS,
+  type: 'success',
   position: 'top-right',
   duration: 3000,
+  hoverPause: true,
+  closeOnClick: true,
+  showProgressBar: true,
 }
 
 export const INJECT_KEY: InjectionKey<NotiContext> = Symbol('noti')

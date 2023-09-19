@@ -1,10 +1,3 @@
-export enum NOTI_TYPE {
-  SUCCESS = 'success',
-  WARNING = 'warning',
-  ERROR = 'error',
-  INFO = 'info',
-}
-
 export type NotificationType = 'success' | 'warning' | 'error' | 'info'
 
 export type NotiPositionTuple = ['top-right', 'top-left', 'bottom-right', 'bottom-left', 'middle-top', 'middle-bottom']
@@ -12,7 +5,7 @@ export type NotiPosition = NotiPositionTuple[number]
 
 export interface NotiOptions {
   /**
-   * The title of the notification.
+   * Text display on the notification.
    */
   message: string
 
