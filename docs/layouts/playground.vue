@@ -193,6 +193,7 @@ const noti = useNoti()
   @apply text-base font-medium;
   @apply transition duration-150 ease-in-out;
   @apply hover:scale-105;
+  @apply bg-[--docus-body-backgroundColor]
 }
 
 .playground .playground__container {
