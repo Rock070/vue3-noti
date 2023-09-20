@@ -36,7 +36,7 @@ const noti = useNoti()
       <h2>
         Clickable Button
       </h2>
-      <div class="flex gap-x-3 sticky top-20 z-10">
+      <div class="flex gap-x-3 sticky top-20 z-10 my-3">
         <button
           :key="i"
           type="button"
@@ -188,11 +188,11 @@ const noti = useNoti()
   @apply rounded-md;
   @apply border;
   @apply border-gray-300;
+  @apply touch-manipulation;
   @apply py-2 px-4;
   @apply text-base font-medium;
   @apply transition duration-150 ease-in-out;
   @apply hover:scale-105;
-  @apply mb-2;
 }
 
 .playground .playground__container {

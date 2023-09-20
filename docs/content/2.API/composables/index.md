@@ -121,7 +121,7 @@ The position of the notification
 - Default: `'top-right'`
 
 ```ts
-type NotiPosition = NotiPositionTuple[number]
+type NotiPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'middle-top' | 'middle-bottom'
 ```
 
 ```ts
