@@ -1,11 +1,28 @@
 {
   "name": "@vue3-noti/core",
+
   "version": "1.0.0",
-  "description": "",
+  "private": false,
+  "description": "Vue3 Toast with Composition API",
   "source": "./src/index.ts",
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
+  "author": "Rock070",
+  "license": "MIT",
+  "homepage": "https://vue3-noti.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rock070/vue3-noti.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/Rock070/vue3-noti/issues",
+    "email": "rockwang070@gmail.com"
+  },
+  "keywords": [
+    "vue",
+    "toast",
+    "notification",
+    "noti"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -26,6 +43,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "vite build -w",
+    "release": "pnpm build && release-it",
     "typecheck": "vue-tsc --noEmit",
     "build": "vite build"
   },
@@ -33,10 +51,10 @@
     "@vueuse/core": ">=10.3.0",
     "vue": ">=3.3.4"
   },
-  "dependencies": {
-  },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^7.0.2",
     "@vitejs/plugin-vue": "^4.2.3",
+    "release-it": "^16.1.5",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.3"
   }
