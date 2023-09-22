@@ -2,16 +2,13 @@
   "github": {
     "release": true
   },
+  "npm": {
+    "publish": false
+  },
   "git": {
+    "push": false,
     "commitMessage": "chore: release v${version}",
     "requireCleanWorkingDir": false
-  },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "preset": "angular",
-      "infile": "CHANGELOG.md",
-      "ignoreRecommendedBump": true
-    }
   }
 }
 
