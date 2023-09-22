@@ -43,7 +43,7 @@
     "clean": "rimraf dist",
     "dev": "vite build -w",
     "release:pre": "pnpm build && sh ./changelogen.sh && release-it",
-    "release": "esno ./script/publish.ts",
+    "release": "esno ./scripts/publish.ts",
     "typecheck": "vue-tsc --noEmit",
     "build": "vite build"
   },
