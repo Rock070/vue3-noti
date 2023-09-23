@@ -188,11 +188,12 @@ bus.on(publishEvent)
 
   --vue3-noti-group-gap: 16px;
 
-  @media screen and (width >= 0px) {
-    --vue3-noti-border-radius: 0px;
-    --vue3-noti-offset: 0px;
-    --vue3-noti-width: 100vw;
-  }
+  --vue3-noti-group-item-padding-x: 20px;
+  --vue3-noti-group-item-padding-y: 14px;
+
+  --vue3-noti-offset: 0px;
+  --vue3-noti-border-radius: 0px;
+  --vue3-noti-width: 100vw;
 
   @media screen and (width >= 640px) {
     --vue3-noti-offset: 16px;
@@ -201,7 +202,7 @@ bus.on(publishEvent)
   }
 
   @media screen and (width >= 768px) {
-    --vue3-noti-width: 33vw;
+    --vue3-noti-width: 31vw;
   }
 }
 
@@ -215,43 +216,53 @@ bus.on(publishEvent)
 }
 
 .vue3-noti .vue3-noti-group--top-right {
-  top: var(--vue3-noti-offset);
-  right: var(--vue3-noti-offset);
+  inset-block-start: var(--vue3-noti-offset);
+  inset-inline-end: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--top-left {
-  top: var(--vue3-noti-offset);
-  left: var(--vue3-noti-offset);
+  inset-block-start: var(--vue3-noti-offset);
+  inset-inline-start: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--bottom-right {
-  bottom: var(--vue3-noti-offset);
-  right: var(--vue3-noti-offset);
+  inset-block-end: var(--vue3-noti-offset);
+  inset-inline-end: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--bottom-left {
-  bottom: var(--vue3-noti-offset);
-  left: var(--vue3-noti-offset);
+  inset-block-end: var(--vue3-noti-offset);
+  inset-inline-start: var(--vue3-noti-offset);
 }
 
 .vue3-noti .vue3-noti-group--middle-top {
-  left: 50%;
-  transform: translateX(-50%);
-  top: var(--vue3-noti-offset);
+  inset-block-start: 0;
+
+  @media screen and (width >= 640px) {
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+
+    inset-block-start: var(--vue3-noti-offset);
+  }
 }
 
 .vue3-noti .vue3-noti-group--middle-bottom {
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: var(--vue3-noti-offset);
+  inset-block-end: 0;
+
+  @media screen and (width >= 640px) {
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+
+    inset-block-end: var(--vue3-noti-offset);
+  }
 }
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item {
   position: relative;
   width: var(--vue3-noti-width);
-  background-color: chartreuse;
+  box-sizing: border-box;
   border-radius: var(--vue3-noti-border-radius);
-  padding: 14px 20px;
+  padding: var(--vue3-noti-group-item-padding-y) var(--vue3-noti-group-item-padding-x);
   overflow: hidden;
 }
 
@@ -285,7 +296,7 @@ bus.on(publishEvent)
 
 .vue3-noti .vue3-noti__progress {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
 }
 </style>
