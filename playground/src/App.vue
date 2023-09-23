@@ -72,28 +72,31 @@ const durationSecond = computed(() => {
       <div class="radio-group">
         <!-- position -->
         <div class="field-group">
-          <label for="position-top-right">top-right: </label>
-          <input id="position-top-right" v-model="options.position" value="top-right" name="position" type="radio">
-        </div>
-        <div class="field-group">
           <label for="position-top-left">top-left: </label>
           <input id="position-top-left" v-model="options.position" value="top-left" name="position" type="radio">
         </div>
         <div class="field-group">
-          <label for="position-bottom-right">bottom-right: </label>
-          <input id="position-bottom-right" v-model="options.position" value="bottom-right" name="position" type="radio">
+          <label for="position-top-middle">top-middle: </label>
+          <input id="position-top-middle" v-model="options.position" value="top-middle" name="position" type="radio">
         </div>
+        <div class="field-group">
+          <label for="position-top-right">top-right: </label>
+          <input id="position-top-right" v-model="options.position" value="top-right" name="position" type="radio">
+        </div>
+
         <div class="field-group">
           <label for="position-bottom-left">bottom-left: </label>
           <input id="position-bottom-left" v-model="options.position" value="bottom-left" name="position" type="radio">
         </div>
+
         <div class="field-group">
-          <label for="position-middle-top">middle-top: </label>
-          <input id="position-middle-top" v-model="options.position" value="middle-top" name="position" type="radio">
+          <label for="position-bottom-middle">bottom-middle: </label>
+          <input id="position-bottom-middle" v-model="options.position" value="bottom-middle" name="position" type="radio">
         </div>
+
         <div class="field-group">
-          <label for="position-middle-bottom">middle-bottom: </label>
-          <input id="position-middle-bottom" v-model="options.position" value="middle-bottom" name="position" type="radio">
+          <label for="position-bottom-right">bottom-right: </label>
+          <input id="position-bottom-right" v-model="options.position" value="bottom-right" name="position" type="radio">
         </div>
       </div>
 

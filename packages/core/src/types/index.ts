@@ -1,6 +1,6 @@
 export type NotificationType = 'success' | 'warning' | 'error' | 'info'
 
-export type NotiPositionTuple = ['top-right', 'top-left', 'bottom-right', 'bottom-left', 'middle-top', 'middle-bottom']
+export type NotiPositionTuple = ['top-left', 'top-middle', 'top-right', 'bottom-left', 'bottom-middle', 'bottom-right']
 export type NotiPosition = NotiPositionTuple[number]
 
 export interface NotiOptions {
