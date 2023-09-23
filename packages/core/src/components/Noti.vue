@@ -237,6 +237,7 @@ bus.on(publishEvent)
 
 .vue3-noti .vue3-noti-group--middle-top {
   inset-block-start: 0;
+  inset-inline-start: 0;
 
   @media screen and (width >= 640px) {
     inset-inline-start: 50%;
@@ -248,6 +249,7 @@ bus.on(publishEvent)
 
 .vue3-noti .vue3-noti-group--middle-bottom {
   inset-block-end: 0;
+  inset-inline-start: 0;
 
   @media screen and (width >= 640px) {
     inset-inline-start: 50%;
@@ -297,6 +299,6 @@ bus.on(publishEvent)
 .vue3-noti .vue3-noti__progress {
   position: absolute;
   inset-block-end: 0;
-  inset-inline-start: 0;
+  inset-inline-start: -1px;
 }
 </style>
