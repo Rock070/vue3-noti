@@ -17,12 +17,12 @@ const { options: initialOptions } = useNotiContext()
 const { inc: countIncrease } = useCounter(1)
 
 const groupMap = ref<NotiGroup>({
-  'top-right': [],
   'top-left': [],
-  'bottom-right': [],
+  'top-middle': [],
+  'top-right': [],
   'bottom-left': [],
-  'middle-top': [],
-  'middle-bottom': [],
+  'bottom-middle': [],
+  'bottom-right': [],
 })
 
 function clearCountDown(timer: NodeJS.Timeout) {
@@ -235,7 +235,7 @@ bus.on(publishEvent)
   inset-inline-start: var(--vue3-noti-offset);
 }
 
-.vue3-noti .vue3-noti-group--middle-top {
+.vue3-noti .vue3-noti-group--top-middle {
   inset-block-start: 0;
   inset-inline-start: 0;
 
@@ -247,7 +247,7 @@ bus.on(publishEvent)
   }
 }
 
-.vue3-noti .vue3-noti-group--middle-bottom {
+.vue3-noti .vue3-noti-group--bottom-middle {
   inset-block-end: 0;
   inset-inline-start: 0;
 

@@ -11,7 +11,8 @@ navigation:
 ```ts
 function useNoti(): (options: NotiOptions) => void
 export type NotificationType = 'success' | 'warning' | 'error' | 'info'
-export type NotiPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'middle-top' | 'middle-bottom'
+
+export type NotiPosition = 'top-left' | 'top-middle' | 'top-right' | 'bottom-left' | 'bottom-middle' | 'bottom-right'
 export interface NotiOptions {
   /**
    * Text display on the notification.
@@ -121,7 +122,7 @@ The position of the notification
 - Default: `'top-right'`
 
 ```ts
-type NotiPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'middle-top' | 'middle-bottom'
+type NotiPosition = 'top-left' | 'top-middle' | 'top-right' | 'bottom-left' | 'bottom-middle' | 'bottom-right'
 ```
 
 ```ts

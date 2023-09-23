@@ -14,12 +14,12 @@ export const DEFAULT_SETTING: NotiOptions = {
 export const INJECT_KEY: InjectionKey<NotiContext> = Symbol('noti')
 
 export const POSITION_LIST: NotiPositionTuple = [
-  'top-right',
   'top-left',
-  'bottom-right',
+  'top-middle',
+  'top-right',
   'bottom-left',
-  'middle-top',
-  'middle-bottom',
+  'bottom-middle',
+  'bottom-right',
 ]
 
 /**
