@@ -40,6 +40,7 @@ withDefaults(defineProps<AtomicProgressProps>(), {
 }
 
 .vue3-noti__progress::-webkit-progress-value {
+  border-radius: 2px;
   background-color: var(--vue3-noti-progress-color);
   filter: contrast(105%) brightness(150%);
 }
