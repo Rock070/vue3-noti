@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "pnpm --filter @vue3-noti/core typecheck",
+    "test": "pnpm --filter @vue3-noti/core test",
     "dev": "pnpm -r --parallel run dev",
     "build": "pnpm --filter @vue3-noti/core build && pnpm --filter docs generate",
     "play": "cd playground && pnpm dev"

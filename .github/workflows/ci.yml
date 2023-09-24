@@ -65,24 +65,24 @@ jobs:
       - name: Type Checking
         run: pnpm typecheck
 
-  # test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Check out to my repo
-  #       uses: actions/checkout@v3
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out to my repo
+        uses: actions/checkout@v3
 
-  #     - name: Install pnpm
-  #       uses: pnpm/action-setup@v2
-  #       with:
-  #         version: 7.2.1
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.2.1
 
-  #     - name: Set node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: ${{ matrix.version }}
+      - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
 
-  #     - name: Setup
-  #       run: pnpm install
+      - name: Setup
+        run: pnpm install
 
-  #     - name: Unit Test
-  #       run: pnpm test:unit
+      - name: Test
+        run: pnpm test

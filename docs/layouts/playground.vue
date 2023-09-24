@@ -38,7 +38,6 @@ const noti = useNoti()
       </h2>
       <div class="flex gap-x-3 sticky top-20 z-10 my-3">
         <button
-          :key="i"
           type="button"
           class="noti-button"
           @click="noti(options)"

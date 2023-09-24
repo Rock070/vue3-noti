@@ -45,6 +45,8 @@
     "release:pre": "pnpm build && sh ./changelogen.sh && release-it",
     "release": "esno ./scripts/publish.ts",
     "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
     "build": "vite build"
   },
   "peerDependencies": {
@@ -54,8 +56,11 @@
   "devDependencies": {
     "@release-it/conventional-changelog": "^7.0.2",
     "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/test-utils": "^2.4.1",
+    "jsdom": "^22.1.0",
     "release-it": "^16.1.5",
     "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.5.3"
+    "vite-plugin-dts": "^3.5.3",
+    "vitest": "^0.34.5"
   }
 }
