@@ -45,7 +45,8 @@
     "release:pre": "pnpm build && sh ./changelogen.sh && release-it",
     "release": "esno ./scripts/publish.ts",
     "typecheck": "vue-tsc --noEmit",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
     "build": "vite build"
   },
   "peerDependencies": {

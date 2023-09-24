@@ -70,6 +70,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^4.2.3
         version: 4.2.3(vite@4.4.5)(vue@3.3.4)
+      '@vitest/ui':
+        specifier: ^0.34.5
+        version: 0.34.5(vitest@0.34.5)
       '@vue/test-utils':
         specifier: ^2.4.1
         version: 2.4.1(vue@3.3.4)
@@ -87,7 +90,7 @@ importers:
         version: 3.5.3(@types/node@20.5.1)(typescript@5.2.2)(vite@4.4.5)
       vitest:
         specifier: ^0.34.5
-        version: 0.34.5(jsdom@22.1.0)
+        version: 0.34.5(@vitest/ui@0.34.5)(jsdom@22.1.0)
 
   playground:
     dependencies:
@@ -3124,6 +3127,21 @@ packages:
       tinyspy: 2.1.1
     dev: true
 
+  /@vitest/ui@0.34.5(vitest@0.34.5):
+    resolution: {integrity: sha512-nK3Ny7fQgoTJMCGXLzYL0oo1ePtruRM9eYT1Y8esQx8fHj05davqVgqWv4Kd+Yy8PfzyrduTx1EYBdSMIbQh8A==}
+    peerDependencies:
+      vitest: '>=0.30.1 <1'
+    dependencies:
+      '@vitest/utils': 0.34.5
+      fast-glob: 3.3.1
+      fflate: 0.8.1
+      flatted: 3.2.9
+      pathe: 1.1.1
+      picocolors: 1.0.0
+      sirv: 2.0.3
+      vitest: 0.34.5(@vitest/ui@0.34.5)(jsdom@22.1.0)
+    dev: true
+
   /@vitest/utils@0.34.5:
     resolution: {integrity: sha512-ur6CmmYQoeHMwmGb0v+qwkwN3yopZuZyf4xt1DBBSGBed8Hf9Gmbm/5dEWqgpLPdRx6Av6jcWXrjcKfkTzg/pw==}
     dependencies:
@@ -5956,6 +5974,10 @@ packages:
     dependencies:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.2.1
+
+  /fflate@0.8.1:
+    resolution: {integrity: sha512-/exOvEuc+/iaUm105QIiOt4LpBdMTWsXxqR0HDF35vx3fmaKzw7354gTilCh5rkzEt8WYyG//ku3h3nRmd7CHQ==}
+    dev: true
 
   /figures@5.0.0:
     resolution: {integrity: sha512-ej8ksPF4x6e5wvK9yevct0UCXh8TTFlWGVLlgjZuoBH1HwjIfKE/IdL5mq89sFA7zELi1VhKpmtDnrs7zWyeyg==}
@@ -12254,7 +12276,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@0.34.5(jsdom@22.1.0):
+  /vitest@0.34.5(@vitest/ui@0.34.5)(jsdom@22.1.0):
     resolution: {integrity: sha512-CPI68mmnr2DThSB3frSuE5RLm9wo5wU4fbDrDwWQQB1CWgq9jQVoQwnQSzYAjdoBOPoH2UtXpOgHVge/uScfZg==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -12292,6 +12314,7 @@ packages:
       '@vitest/runner': 0.34.5
       '@vitest/snapshot': 0.34.5
       '@vitest/spy': 0.34.5
+      '@vitest/ui': 0.34.5(vitest@0.34.5)
       '@vitest/utils': 0.34.5
       acorn: 8.10.0
       acorn-walk: 8.2.0

@@ -146,6 +146,7 @@ bus.on(publishEvent)
       <div
         v-if="group.length > 0"
         class="vue3-noti-group"
+        data-test-id="vue3-noti-group"
         :class="[`vue3-noti-group--${position}`]"
       >
         <template
@@ -153,6 +154,7 @@ bus.on(publishEvent)
           :key="item.id"
         >
           <div
+            data-test-id="vue3-noti-group__item"
             class="vue3-noti-group__item"
             :class="[`vue3-noti-group-item--${item.type}`]"
             @mouseenter="onMouseEnter(item)"
