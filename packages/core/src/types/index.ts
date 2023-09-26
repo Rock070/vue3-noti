@@ -38,6 +38,11 @@ export interface NotiOptions {
    * Whether to pause on hover.
    */
   hoverPause?: boolean
+
+  /**
+   * Callback when notification is closed.
+   */
+  onClose?: () => void
 }
 
 export interface NotiContext {
