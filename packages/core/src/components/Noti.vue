@@ -46,6 +46,7 @@ function triggerCountDown(target: Notification) {
     }
 
     target.timer.lastTime = 0
+    target.onClose?.()
     closeNoti(target)
   }, MS_PER_FRAME)
 
