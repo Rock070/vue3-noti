@@ -157,7 +157,7 @@ bus.on(publishEvent)
           <div
             data-test-id="vue3-noti-group__item"
             class="vue3-noti-group__item"
-            :class="[`vue3-noti-group-item--${item.type}`]"
+            :class="[`vue3-noti-group__item--${item.type}`]"
             @mouseenter="onMouseEnter(item)"
             @mouseleave="onMouseLeave(item)"
             @click="onClick(item)"
@@ -191,8 +191,8 @@ bus.on(publishEvent)
 
   --vue3-noti-group-gap: 16px;
 
-  --vue3-noti-group-item-padding-x: 20px;
-  --vue3-noti-group-item-padding-y: 14px;
+  --vue3-noti-group__item-padding-x: 20px;
+  --vue3-noti-group__item-padding-y: 14px;
 
   --vue3-noti-offset: 0px;
   --vue3-noti-border-radius: 0px;
@@ -267,32 +267,32 @@ bus.on(publishEvent)
   width: var(--vue3-noti-width);
   box-sizing: border-box;
   border-radius: var(--vue3-noti-border-radius);
-  padding: var(--vue3-noti-group-item-padding-y) var(--vue3-noti-group-item-padding-x);
+  padding: var(--vue3-noti-group__item-padding-y) var(--vue3-noti-group__item-padding-x);
   overflow: hidden;
 }
 
-.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--success {
+.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group__item--success {
   background-color: var(--vue3-noti-success-color);
   color: var(--vue3-noti-success-text-color);
 
   --vue3-noti-progress-color: var(--vue3-noti-success-color);
 }
 
-.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--info {
+.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group__item--info {
   background-color: var(--vue3-noti-info-color);
   color: var(--vue3-noti-info-text-color);
 
   --vue3-noti-progress-color: var(--vue3-noti-info-color);
 }
 
-.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--warning {
+.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group__item--warning {
   background-color: var(--vue3-noti-warning-color);
   color: var(--vue3-noti-warning-text-color);
 
   --vue3-noti-progress-color: var(--vue3-noti-warning-color);
 }
 
-.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group-item--error {
+.vue3-noti .vue3-noti-group .vue3-noti-group__item.vue3-noti-group__item--error {
   background-color: var(--vue3-noti-error-color);
   color: var(--vue3-noti-error-text-color);
 

@@ -22,9 +22,7 @@ withDefaults(defineProps<AtomicProgressProps>(), {
     :value="value"
     :max="max"
     class="vue3-noti__progress"
-  >
-    {{ Math.floor(value / max) }}%
-  </progress>
+  />
 </template>
 
 <style>
