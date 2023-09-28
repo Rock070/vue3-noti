@@ -1,3 +1,5 @@
+import type { Fn } from '@vueuse/core'
+
 export type NotificationType = 'success' | 'warning' | 'error' | 'info'
 
 export type NotiPositionTuple = ['top-left', 'top-middle', 'top-right', 'bottom-left', 'bottom-middle', 'bottom-right']
@@ -46,15 +48,28 @@ export interface NotiOptions {
 }
 
 export interface NotiContext {
-  options: NotiOptions
+  /**
+   * Initial options.
+   */
+  initialOptions: NotiOptions
+
+  /**
+   * Notify a notification.
+   */
+  notify: ((options: NotiOptions) => void | Notification) | Fn
+
+  /**
+   * Close all notifications.
+   */
+  closeAll: Fn
 }
 
 export interface NotiTimer {
 
   /**
-   * interval ID
+   * interval Id
    */
-  intervalID: NodeJS.Timeout | undefined
+  intervalId: NodeJS.Timeout | undefined
 
   /**
    * Time left (in milliseconds)

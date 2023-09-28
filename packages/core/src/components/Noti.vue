@@ -3,20 +3,14 @@ import { ref } from 'vue'
 
 import { useCounter } from '@vueuse/core'
 
-import {
-  useNotiCallBus,
-  useNotiCloseAllBus,
-} from '../composables/useEventBus'
-
 import { useNotiContext } from '../composables/useNotiContext'
 
 import type { NotiGroup, NotiOptions, Notification } from '../types'
-import { MS_PER_FRAME, POSITION_LIST } from '../constant'
+import { DEFAULT_SETTING, MS_PER_FRAME, POSITION_LIST } from '../constant'
 import AtomicProgress from './AtomicProgress.vue'
 
 export type NotificationList = Notification[]
 
-const { options: initialOptions } = useNotiContext()
 const { inc: countIncrease } = useCounter(1)
 
 const groupMap = ref<NotiGroup>({
@@ -33,8 +27,8 @@ function clearCountDown(timer: NodeJS.Timeout) {
 }
 
 function closeNoti(val: Notification) {
-  if (val.timer.intervalID !== undefined)
-    clearCountDown(val.timer.intervalID)
+  if (val.timer.intervalId !== undefined)
+    clearCountDown(val.timer.intervalId)
 
   removeNotiFromGroup(val)
 }
@@ -53,17 +47,17 @@ function triggerCountDown(target: Notification) {
     closeNoti(target)
   }, MS_PER_FRAME)
 
-  target.timer.intervalID = interval
+  target.timer.intervalId = interval
 }
 
 function makeNoti(options: NotiOptions): Notification {
   const item: Notification = {
-    ...initialOptions,
+    ...DEFAULT_SETTING,
     ...options,
     id: countIncrease(),
     timer: {
       lastTime: 0,
-      intervalID: undefined,
+      intervalId: undefined,
       endCountDownTimestamp: 0,
     },
   }
@@ -100,6 +94,8 @@ function publishEvent(options: NotiOptions) {
     return
 
   triggerCountDown(target)
+
+  return item
 }
 
 function removeNotiFromGroup(val: Notification) {
@@ -116,15 +112,21 @@ function removeNotiFromGroup(val: Notification) {
 }
 
 function clearAllNoti() {
-  for (const position of POSITION_LIST)
+  for (const position of POSITION_LIST) {
+    groupMap.value[position].forEach((item) => {
+      if (item.timer.intervalId !== undefined)
+        clearCountDown(item.timer.intervalId)
+    })
+
     groupMap.value[position].length = 0
+  }
 }
 
 function onMouseEnter(val: Notification) {
-  if (!val.hoverPause || val.timer.intervalID === undefined)
+  if (!val.hoverPause || val.timer.intervalId === undefined)
     return
 
-  clearCountDown(val.timer.intervalID)
+  clearCountDown(val.timer.intervalId)
 }
 function onMouseLeave(val: Notification) {
   if (!val.hoverPause)
@@ -135,18 +137,17 @@ function onMouseLeave(val: Notification) {
 }
 
 function onClick(val: Notification) {
-  if (!val.closeOnClick || val.timer.intervalID === undefined)
+  if (!val.closeOnClick || val.timer.intervalId === undefined)
     return
 
-  clearCountDown(val.timer.intervalID)
+  clearCountDown(val.timer.intervalId)
   removeNotiFromGroup(val)
 }
 
-const notiCallBus = useNotiCallBus()
-notiCallBus.on(publishEvent)
+const context = useNotiContext()
 
-const notiCloseAllBus = useNotiCloseAllBus()
-notiCloseAllBus.on(clearAllNoti)
+context.notify = publishEvent
+context.closeAll = clearAllNoti
 </script>
 
 <template>

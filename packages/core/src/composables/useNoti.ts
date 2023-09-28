@@ -1,12 +1,11 @@
-import type { NotiOptions } from '../types'
-import { useNotiCallBus, useNotiCloseAllBus } from './useEventBus'
+import type { NotiContext } from '../types'
+import { useNotiContext } from './useNotiContext'
 
-export function useNoti() {
-  const notiCallBus = useNotiCallBus()
-  const notiCloseAllBus = useNotiCloseAllBus()
-  const notify = (options: NotiOptions) => notiCallBus.emit(options)
+export function useNoti(): Omit<NotiContext, 'initialOptions'> {
+  const context = useNotiContext()
 
-  const closeAll = () => notiCloseAllBus.emit()
+  const notify = context.notify
+  const closeAll = context.closeAll
 
   return {
     notify,

@@ -36,7 +36,7 @@ const { notify, closeAll } = useNoti()
       <h2>
         Clickable Button
       </h2>
-      <div class="flex gap-x-3 sticky top-20 z-10 my-3">
+      <div class="sticky top-20 z-10 grid grid-cols-2 gap-x-3">
         <button
           type="button"
           class="noti-button"
@@ -44,14 +44,12 @@ const { notify, closeAll } = useNoti()
         >
           Fire Notify
         </button>
-      </div>
-      <div class="flex gap-x-3 sticky top-40 z-10 my-3">
         <button
           type="button"
           class="noti-button"
           @click="closeAll"
         >
-          clear All
+          Clear All
         </button>
       </div>
       <h2>

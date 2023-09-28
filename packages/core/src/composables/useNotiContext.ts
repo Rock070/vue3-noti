@@ -1,18 +1,16 @@
 import { inject } from 'vue'
-import { DEFAULT_SETTING, INJECT_KEY } from '../constant'
-import type { NotiContext, NotiOptions } from '../types'
+import type { InjectionKey } from 'vue'
 
-export function useNotiProvideArguments(initialOptions: NotiOptions) {
-  const provideArguments = [INJECT_KEY, {
-    options: {
-      ...DEFAULT_SETTING,
-      ...initialOptions,
-    },
-  }] as const
+import { noop } from '@vueuse/core'
+import { DEFAULT_SETTING } from '../constant'
+import type { NotiContext } from '../types'
 
-  return provideArguments
-}
+export const INJECT_KEY: InjectionKey<NotiContext> = Symbol('noti')
 
 export function useNotiContext(): NotiContext {
-  return inject(INJECT_KEY) || { options: DEFAULT_SETTING }
+  return inject(INJECT_KEY) || {
+    initialOptions: DEFAULT_SETTING,
+    closeAll: noop,
+    notify: noop,
+  }
 }
