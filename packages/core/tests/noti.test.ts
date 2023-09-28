@@ -14,9 +14,9 @@ describe('message', () => {
       },
     })
 
-    const noti = useNoti()
+    const { notify } = useNoti()
 
-    noti({
+    notify({
       message: 'Hello Noti Test',
       duration: 1000,
       position: 'top-right',

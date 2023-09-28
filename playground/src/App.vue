@@ -4,7 +4,7 @@ import { Noti, useNoti } from '@vue3-noti/core'
 import type { NotiOptions } from '@vue3-noti/core'
 import '@vue3-noti/core/style.css'
 
-const noti = useNoti()
+const { notify } = useNoti()
 
 const options = ref<NotiOptions>({
   message: 'Hello Noti',
@@ -33,7 +33,7 @@ const durationSecond = computed(() => {
     <button
       type="button"
       class="noti-button"
-      @click="noti(options)"
+      @click="notify(options)"
     >
       notify
     </button>
