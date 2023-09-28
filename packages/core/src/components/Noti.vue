@@ -3,7 +3,10 @@ import { ref } from 'vue'
 
 import { useCounter } from '@vueuse/core'
 
-import useEventBus from '../composables/useEventBus'
+import {
+  useNotiCallBus,
+  useNotiCloseAllBus,
+} from '../composables/useEventBus'
 
 import { useNotiContext } from '../composables/useNotiContext'
 
@@ -112,6 +115,11 @@ function removeNotiFromGroup(val: Notification) {
   belongGroup.splice(index, 1)
 }
 
+function clearAllNoti() {
+  for (const position of POSITION_LIST)
+    groupMap.value[position].length = 0
+}
+
 function onMouseEnter(val: Notification) {
   if (!val.hoverPause || val.timer.intervalID === undefined)
     return
@@ -134,8 +142,11 @@ function onClick(val: Notification) {
   removeNotiFromGroup(val)
 }
 
-const bus = useEventBus()
-bus.on(publishEvent)
+const notiCallBus = useNotiCallBus()
+notiCallBus.on(publishEvent)
+
+const notiCloseAllBus = useNotiCloseAllBus()
+notiCloseAllBus.on(clearAllNoti)
 </script>
 
 <template>

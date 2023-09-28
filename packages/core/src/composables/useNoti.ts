@@ -1,8 +1,15 @@
 import type { NotiOptions } from '../types'
-import useEventBus from './useEventBus'
+import { useNotiCallBus, useNotiCloseAllBus } from './useEventBus'
 
 export function useNoti() {
-  const bus = useEventBus()
-  const noti = (options: NotiOptions) => bus.emit(options)
-  return noti
+  const notiCallBus = useNotiCallBus()
+  const notiCloseAllBus = useNotiCloseAllBus()
+  const notify = (options: NotiOptions) => notiCallBus.emit(options)
+
+  const closeAll = () => notiCloseAllBus.emit()
+
+  return {
+    notify,
+    closeAll,
+  }
 }

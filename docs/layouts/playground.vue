@@ -23,7 +23,7 @@ const durationSecond = computed(() => {
   return options.value.duration / 1000
 })
 
-const noti = useNoti()
+const { notify, closeAll } = useNoti()
 </script>
 
 <template>
@@ -40,9 +40,18 @@ const noti = useNoti()
         <button
           type="button"
           class="noti-button"
-          @click="noti(options)"
+          @click="notify(options)"
         >
           Fire Notify
+        </button>
+      </div>
+      <div class="flex gap-x-3 sticky top-40 z-10 my-3">
+        <button
+          type="button"
+          class="noti-button"
+          @click="closeAll"
+        >
+          clear All
         </button>
       </div>
       <h2>
