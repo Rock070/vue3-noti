@@ -4,14 +4,13 @@ import { noop } from '@vueuse/core'
 import { INJECT_KEY } from '../constant'
 import type { NotiContext, NotiGroup, NotiOptions, Notification } from '../types'
 
-// eslint-disable-next-line unused-imports/no-unused-vars
+// @ts-expect-error unused
 const notiNoop = (val: Notification) => undefined
 
 export function useNotiContext(): NotiContext {
   const context = getCurrentInstance()?.appContext?.app?.runWithContext?.(() => {
     return inject(INJECT_KEY)
   })
-  // const context = inject(INJECT_KEY)
 
   return context ?? {
     groupMap: ref<NotiGroup>({
@@ -22,7 +21,10 @@ export function useNotiContext(): NotiContext {
       'bottom-middle': [],
       'bottom-right': [],
     }),
-    // eslint-disable-next-line unused-imports/no-unused-vars
+
+    //
+
+    // @ts-expect-error unused
     notify: (options: NotiOptions) => undefined,
     closeAll: noop,
     onMouseEnter: notiNoop,
