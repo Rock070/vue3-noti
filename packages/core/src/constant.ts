@@ -1,5 +1,8 @@
 import type { InjectionKey } from 'vue'
+
 import type { NotiContext, NotiOptions, NotiPositionTuple } from './types'
+
+export const INJECT_KEY: InjectionKey<NotiContext> = Symbol('noti')
 
 export const DEFAULT_SETTING: NotiOptions = {
   message: '',
@@ -10,8 +13,6 @@ export const DEFAULT_SETTING: NotiOptions = {
   closeOnClick: true,
   showProgressBar: true,
 }
-
-export const INJECT_KEY: InjectionKey<NotiContext> = Symbol('noti')
 
 export const POSITION_LIST: NotiPositionTuple = [
   'top-left',

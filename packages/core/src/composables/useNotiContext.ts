@@ -1,18 +1,34 @@
-import { inject } from 'vue'
-import { DEFAULT_SETTING, INJECT_KEY } from '../constant'
-import type { NotiContext, NotiOptions } from '../types'
+import { getCurrentInstance, inject, ref } from 'vue'
 
-export function useNotiProvideArguments(initialOptions: NotiOptions) {
-  const provideArguments = [INJECT_KEY, {
-    options: {
-      ...DEFAULT_SETTING,
-      ...initialOptions,
-    },
-  }] as const
+import { noop } from '@vueuse/core'
+import { INJECT_KEY } from '../constant'
+import type { NotiContext, NotiGroup, NotiOptions, Notification } from '../types'
 
-  return provideArguments
-}
+// @ts-expect-error unused
+const notiNoop = (val: Notification) => undefined
 
 export function useNotiContext(): NotiContext {
-  return inject(INJECT_KEY) || { options: DEFAULT_SETTING }
+  const context = getCurrentInstance()?.appContext?.app?.runWithContext?.(() => {
+    return inject(INJECT_KEY)
+  })
+
+  return context ?? {
+    groupMap: ref<NotiGroup>({
+      'top-left': [],
+      'top-middle': [],
+      'top-right': [],
+      'bottom-left': [],
+      'bottom-middle': [],
+      'bottom-right': [],
+    }),
+
+    //
+
+    // @ts-expect-error unused
+    notify: (options: NotiOptions) => undefined,
+    closeAll: noop,
+    onMouseEnter: notiNoop,
+    onMouseLeave: notiNoop,
+    onClick: notiNoop,
+  }
 }

@@ -14,15 +14,7 @@ describe('message', () => {
       },
     })
 
-    const noti = useNoti()
-
-    noti({
-      message: 'Hello Noti Test',
-      duration: 1000,
-      position: 'top-right',
-    })
-
-    await nextTick()
+    await wrapper.find('button[type="button"]').trigger('click')
     const notiEl = wrapper.get('[data-test-id="vue3-noti-group__item"]')
     expect(notiEl.text()).contain('Hello Noti Test')
   })
