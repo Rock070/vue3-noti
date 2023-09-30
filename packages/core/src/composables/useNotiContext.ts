@@ -1,16 +1,32 @@
-import { inject } from 'vue'
-import type { InjectionKey } from 'vue'
+import { getCurrentInstance, inject, ref } from 'vue'
 
 import { noop } from '@vueuse/core'
-import { DEFAULT_SETTING } from '../constant'
-import type { NotiContext } from '../types'
+import { INJECT_KEY } from '../constant'
+import type { NotiContext, NotiGroup, NotiOptions, Notification } from '../types'
 
-export const INJECT_KEY: InjectionKey<NotiContext> = Symbol('noti')
+// eslint-disable-next-line unused-imports/no-unused-vars
+const notiNoop = (val: Notification) => undefined
 
 export function useNotiContext(): NotiContext {
-  return inject(INJECT_KEY) || {
-    initialOptions: DEFAULT_SETTING,
+  const context = getCurrentInstance()?.appContext?.app?.runWithContext?.(() => {
+    return inject(INJECT_KEY)
+  })
+  // const context = inject(INJECT_KEY)
+
+  return context ?? {
+    groupMap: ref<NotiGroup>({
+      'top-left': [],
+      'top-middle': [],
+      'top-right': [],
+      'bottom-left': [],
+      'bottom-middle': [],
+      'bottom-right': [],
+    }),
+    // eslint-disable-next-line unused-imports/no-unused-vars
+    notify: (options: NotiOptions) => undefined,
     closeAll: noop,
-    notify: noop,
+    onMouseEnter: notiNoop,
+    onMouseLeave: notiNoop,
+    onClick: notiNoop,
   }
 }

@@ -1,14 +1,11 @@
-import type { NotiContext } from '../types'
+import type { UseNotiReturn } from '../types'
 import { useNotiContext } from './useNotiContext'
 
-export function useNoti(): Omit<NotiContext, 'initialOptions'> {
+export function useNoti(): UseNotiReturn {
   const context = useNotiContext()
 
-  const notify = context.notify
-  const closeAll = context.closeAll
-
   return {
-    notify,
-    closeAll,
+    notify: context?.notify,
+    closeAll: context?.closeAll,
   }
 }

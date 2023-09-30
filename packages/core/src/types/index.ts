@@ -1,9 +1,25 @@
 import type { Fn } from '@vueuse/core'
+import type { Ref } from 'vue'
 
 export type NotificationType = 'success' | 'warning' | 'error' | 'info'
 
+export const enum NotificationEnum {
+  SUCCESS = 'success',
+  WARNING = 'warning',
+  ERROR = 'error',
+  INFO = 'info',
+}
 export type NotiPositionTuple = ['top-left', 'top-middle', 'top-right', 'bottom-left', 'bottom-middle', 'bottom-right']
-export type NotiPosition = NotiPositionTuple[number]
+export type NotiPositionType = NotiPositionTuple[number]
+
+export const enum NotiPositionEnum {
+  'TOP_LEFT' = 'top-left',
+  'TOP_MIDDLE' = 'top-middle',
+  'TOP_RIGHT' = 'top-right',
+  'BOTTOM_LEFT' = 'bottom-left',
+  'BOTTOM_MIDDLE' = 'bottom-middle',
+  'BOTTOM_RIGHT' = 'bottom-right',
+}
 
 export interface NotiOptions {
   /**
@@ -19,7 +35,7 @@ export interface NotiOptions {
   /**
    * The position of the notification.
    */
-  position?: NotiPosition
+  position?: NotiPositionType
 
   /**
    * The duration of the notification.
@@ -47,23 +63,6 @@ export interface NotiOptions {
   onClose?: () => void
 }
 
-export interface NotiContext {
-  /**
-   * Initial options.
-   */
-  initialOptions: NotiOptions
-
-  /**
-   * Notify a notification.
-   */
-  notify: ((options: NotiOptions) => void | Notification) | Fn
-
-  /**
-   * Close all notifications.
-   */
-  closeAll: Fn
-}
-
 export interface NotiTimer {
 
   /**
@@ -87,4 +86,38 @@ export interface Notification extends NotiOptions {
   timer: NotiTimer
 }
 
-export type NotiGroup = Record<NotiPosition, Notification[]>
+export type NotiGroup = Record<NotiPositionType, Notification[]>
+
+export interface NotiContext {
+  /**
+   * Notification group map.
+   */
+  groupMap: Ref<NotiGroup>
+
+  /**
+   * Trigger a notification show.
+   */
+  notify: (options: NotiOptions) => Notification | undefined
+
+  /**
+   * Close all notifications.
+   */
+  closeAll: Fn
+
+  /**
+   * Callback when mouse enter.
+   */
+  onMouseEnter: (val: Notification) => void
+
+  /**
+   * Callback when mouse leave.
+   */
+  onMouseLeave: (val: Notification) => void
+
+  /**
+   * Callback when click.
+   */
+  onClick: (val: Notification) => void
+}
+
+export type UseNotiReturn = Pick<NotiContext, 'notify' | 'closeAll'>
