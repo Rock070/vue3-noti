@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNotiContext } from '../composables/useNotiContext'
-import type { Notification } from '../types'
+import type { NotiPositionType, Notification } from '../types'
 import AtomicProgress from './AtomicProgress.vue'
 
 export type NotificationList = Notification[]
@@ -11,6 +11,22 @@ const {
   onMouseLeave,
   onClick,
 } = useNotiContext()
+
+function getPositionSide(position: NotiPositionType) {
+  switch (position) {
+    case 'top-middle':
+      return 'top'
+    case 'bottom-middle':
+      return 'bottom'
+    case 'top-left':
+    case 'bottom-left':
+      return 'left'
+    case 'top-right':
+    case 'bottom-right':
+    default:
+      return 'right'
+  }
+}
 </script>
 
 <template>
@@ -20,10 +36,9 @@ const {
       :key="position"
     >
       <Transition
-        enter-active-class="transition-custom"
-        leave-active-class="leave-active"
-        enter-from-class="transition-fade"
-        leave-to-class="transition-fade"
+        name="vue3-noti"
+        :enter-from-class="`vue3-noti-${getPositionSide(position)}-enter-from`"
+        :leave-to-class="`vue3-noti-${getPositionSide(position)}-leave-to`"
       >
         <div
           v-if="group.length > 0"
@@ -32,11 +47,9 @@ const {
           :class="[`vue3-noti-group--${position}`]"
         >
           <TransitionGroup
-            enter-active-class="transition-custom"
-            leave-active-class="leave-active"
-            enter-from-class="transition-fade"
-            leave-to-class="transition-fade"
-            move-class="transition-custom"
+            name="vue3-noti"
+            :enter-from-class="`vue3-noti-${getPositionSide(position)}-enter-from`"
+            :leave-to-class="`vue3-noti-${getPositionSide(position)}-leave-to`"
           >
             <template
               v-for="item in group"
