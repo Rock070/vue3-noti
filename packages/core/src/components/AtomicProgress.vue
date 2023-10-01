@@ -27,9 +27,15 @@ withDefaults(defineProps<AtomicProgressProps>(), {
 
 <style>
 .vue3-noti__progress {
+  position: absolute;
+
   width: 100%;
-  border-radius: 10px;
   height: 4px;
+
+  border-radius: 10px;
+
+  inset-block-end: 0;
+  inset-inline-start: -1px;
   overflow: hidden;
 }
 
@@ -38,7 +44,6 @@ withDefaults(defineProps<AtomicProgressProps>(), {
 }
 
 .vue3-noti__progress::-webkit-progress-value {
-  border-radius: 1px;
   background-color: hsla(0,0%,100%,.7);
 }
 </style>
