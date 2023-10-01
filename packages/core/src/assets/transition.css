@@ -1,0 +1,39 @@
+.vue3-noti-move,
+.vue3-noti-enter-active,
+.vue3-noti-leave-active {
+  transition: all .3s ease-in-out;
+}
+
+.vue3-noti-leave-active {
+  position: absolute;
+}
+
+.vue3-noti-enter-from,
+.vue3-noti-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.vue3-noti-right-enter-from,
+.vue3-noti-right-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.vue3-noti-left-enter-from,
+.vue3-noti-left-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.vue3-noti-top-enter-from,
+.vue3-noti-top-leave-to {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.vue3-noti-bottom-enter-from,
+.vue3-noti-bottom-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}
