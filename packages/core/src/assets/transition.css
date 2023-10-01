@@ -1,7 +1,7 @@
 .vue3-noti-move,
 .vue3-noti-enter-active,
 .vue3-noti-leave-active {
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .vue3-noti-leave-active {

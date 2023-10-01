@@ -13,20 +13,21 @@
 
   --vue3-noti-group-gap: 16px;
 
-  --vue3-noti-group__item-padding-x: 20px;
-  --vue3-noti-group__item-padding-y: 14px;
+  --vue3-noti-group__item-padding-x: 24px;
+  --vue3-noti-group__item-padding-y: 22px;
 
-  --vue3-noti-offset: 0px;
-  --vue3-noti-border-radius: 0px;
-  --vue3-noti-width: 100vw;
+
+
+  @media screen and (width < 640px) {
+    --vue3-noti-border-radius: 0px;
+    --vue3-noti-offset: 0px;
+    --vue3-noti-width: 100vw;
+  }
 
   @media screen and (width >= 640px) {
     --vue3-noti-offset: 16px;
-    --vue3-noti-border-radius: 6px;
-    --vue3-noti-width: 45vw;
-  }
-
-  @media screen and (width >= 768px) {
-    --vue3-noti-width: 31vw;
+    --vue3-noti-border-radius: 8px;
+    --vue3-noti-min-width: 280px;
+    --vue3-noti-max-width: 50vw;
   }
 }

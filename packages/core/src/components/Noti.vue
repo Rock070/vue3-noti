@@ -140,7 +140,11 @@ function getPositionSide(position: NotiPositionType) {
 
 .vue3-noti .vue3-noti-group .vue3-noti-group__item {
   position: relative;
+
+  min-width: var(--vue3-noti-min-width);
   width: var(--vue3-noti-width);
+  max-width: var(--vue3-noti-max-width);
+
   box-sizing: border-box;
   border-radius: var(--vue3-noti-border-radius);
   padding: var(--vue3-noti-group__item-padding-y) var(--vue3-noti-group__item-padding-x);
@@ -173,11 +177,5 @@ function getPositionSide(position: NotiPositionType) {
   color: var(--vue3-noti-error-text-color);
 
   --vue3-noti-progress-color: var(--vue3-noti-error-color);
-}
-
-.vue3-noti .vue3-noti__progress {
-  position: absolute;
-  inset-block-end: 0;
-  inset-inline-start: -1px;
 }
 </style>
