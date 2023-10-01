@@ -1,0 +1,13 @@
+.transition-custom {
+  transition: all .2s ease-in-out
+}
+
+.transition-fade {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.leave-active {
+  transition: all .2s ease-in-out;
+  position: absolute;
+}

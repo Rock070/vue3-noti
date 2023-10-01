@@ -19,70 +19,58 @@ const {
       v-for="(group, position) in groupMap"
       :key="position"
     >
-      <div
-        v-if="group.length > 0"
-        class="vue3-noti-group"
-        data-test-id="vue3-noti-group"
-        :class="[`vue3-noti-group--${position}`]"
+      <Transition
+        enter-active-class="transition-custom"
+        leave-active-class="leave-active"
+        enter-from-class="transition-fade"
+        leave-to-class="transition-fade"
       >
-        <template
-          v-for="item in group"
-          :key="item.id"
+        <div
+          v-if="group.length > 0"
+          class="vue3-noti-group"
+          data-test-id="vue3-noti-group"
+          :class="[`vue3-noti-group--${position}`]"
         >
-          <div
-            data-test-id="vue3-noti-group__item"
-            class="vue3-noti-group__item"
-            :class="[`vue3-noti-group__item--${item.type}`]"
-            @mouseenter="onMouseEnter(item)"
-            @mouseleave="onMouseLeave(item)"
-            @click="onClick(item)"
+          <TransitionGroup
+            enter-active-class="transition-custom"
+            leave-active-class="leave-active"
+            enter-from-class="transition-fade"
+            leave-to-class="transition-fade"
+            move-class="transition-custom"
           >
-            {{ item.message }}
-            <AtomicProgress
-              v-if="item.showProgressBar"
-              :value="item.timer.lastTime"
-              :max="item.duration"
-            />
-          </div>
-        </template>
-      </div>
+            <template
+              v-for="item in group"
+              :key="item.id"
+            >
+              <div
+                data-test-id="vue3-noti-group__item"
+                class="vue3-noti-group__item"
+                :class="[`vue3-noti-group__item--${item.type}`]"
+                @mouseenter="onMouseEnter(item)"
+                @mouseleave="onMouseLeave(item)"
+                @click="onClick(item)"
+              >
+                <span>
+                  {{ item.message }}
+                </span>
+                <Transition name="default">
+                  <AtomicProgress
+                    v-if="item.showProgressBar"
+                    :value="item.timer.lastTime"
+                    :max="item.duration"
+                  />
+                </Transition>
+              </div>
+            </template>
+          </TransitionGroup>
+        </div>
+      </Transition>
     </template>
   </div>
 </template>
 
 <style>
-:root {
-  --vue3-noti-success-color: #4caf50;
-  --vue3-noti-success-text-color: white;
-
-  --vue3-noti-info-color: #3585F2;
-  --vue3-noti-info-text-color: white;
-
-  --vue3-noti-warning-color: #E8D943;
-  --vue3-noti-warning-text-color: white;
-
-  --vue3-noti-error-color: #ED4D4C;
-  --vue3-noti-error-text-color: white;
-
-  --vue3-noti-group-gap: 16px;
-
-  --vue3-noti-group__item-padding-x: 20px;
-  --vue3-noti-group__item-padding-y: 14px;
-
-  --vue3-noti-offset: 0px;
-  --vue3-noti-border-radius: 0px;
-  --vue3-noti-width: 100vw;
-
-  @media screen and (width >= 640px) {
-    --vue3-noti-offset: 16px;
-    --vue3-noti-border-radius: 6px;
-    --vue3-noti-width: 45vw;
-  }
-
-  @media screen and (width >= 768px) {
-    --vue3-noti-width: 31vw;
-  }
-}
+@import url(../assets/index.css);
 
 .vue3-noti .vue3-noti-group {
   position: fixed;
