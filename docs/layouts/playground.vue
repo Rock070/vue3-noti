@@ -61,7 +61,7 @@ const { notify, closeAll } = useNoti()
           <br>
           const noti = useNoti();
           <br>
-          noti({{ options }})
+          notify({{ options }})
         </ProsePre>
       </div>
 

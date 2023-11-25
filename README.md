@@ -1,3 +1,7 @@
+<div style="width:100%; display:flex; justify-content:center; align-items:center;">
+ <img src="./assets/cover.svg" />
+</div>
+
 # vue3-noti
 
 Vue3 Toast with Composition API

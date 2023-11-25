@@ -6,6 +6,24 @@ navigation:
 ---
 # useNoti
 
+## Usage
+
+```ts [vue3-noti.vue]
+import { useNoti } from '@vue3-noti/core'
+
+const noti = useNoti()
+
+notify({
+  message: 'Hi Noti',
+  type: 'success',
+  position: 'top-right',
+  duration: 3000,
+  hoverPause: true,
+  closeOnClick: true,
+  showProgressBar: true,
+})
+```
+
 ## Type
 
 ```ts
@@ -55,25 +73,8 @@ export interface NotiOptions {
 import type { NotiOptions } from '@vue3-noti/core'
 ```
 
-## Usage
 
-```ts [vue3-noti.vue]
-import { useNoti } from '@vue3-noti/core'
-
-const noti = useNoti()
-
-noti({
-  message: 'Hi Noti',
-  type: 'success',
-  position: 'top-right',
-  duration: 3000,
-  hoverPause: true,
-  closeOnClick: true,
-  showProgressBar: true,
-})
-```
-
-## Options
+## Option
 
 ### message (required)
 
@@ -85,7 +86,7 @@ Text displayed on the notification.
 ```ts
 const noti = useNoti()
 
-noti({
+notify({
   message: 'Hi Noti',
 })
 ```
@@ -108,7 +109,7 @@ import type { NotificationType } from '@vue3-noti/core'
 ```ts
 const noti = useNoti()
 
-noti({
+notify({
   message: 'Hi Noti',
   type: 'success',
 })
@@ -132,7 +133,7 @@ import type { NotiPosition } from '@vue3-noti/core'
 ```ts
 const noti = useNoti()
 
-noti({
+notify({
   message: 'Hi Noti',
   type: 'top-right',
 })
@@ -148,7 +149,7 @@ The duration of the notification's display in milliseconds.
 ```ts
 const noti = useNoti()
 
-noti({
+notify({
   message: 'Hi Noti',
   duration: 3000,
 })
@@ -164,7 +165,7 @@ Specify whether to display a progress bar.
 ```ts
 const noti = useNoti()
 
-noti({
+notify({
   message: 'Hi Noti',
   showProgressBar: true,
 })
@@ -180,7 +181,7 @@ Specify whether to close the notification when clicked.
 ```ts
 const noti = useNoti()
 
-noti({
+notify({
   message: 'Hi Noti',
   closeOnClick: true,
 })
@@ -196,7 +197,7 @@ Specify whether to pause the notification's display on hover.
 ```ts
 const noti = useNoti()
 
-noti({
+notify({
   message: 'Hi Noti',
   hoverPause: true,
 })
