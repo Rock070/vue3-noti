@@ -1,3 +1,3 @@
 <template>
-  <img src="/favicon.ico" alt="Nuxt">
+  <img src="/favicon.svg" alt="Nuxt">
 </template>

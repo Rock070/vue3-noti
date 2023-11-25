@@ -34,3 +34,5 @@ pnpm install
 # Run both core and docs and playground
 pnpm dev
 ```
+
+:cover

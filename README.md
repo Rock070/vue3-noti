@@ -1,4 +1,4 @@
-<div style="width:100%; display:flex; justify-content="center; align-items:center;">
+<div style="width:100%; display:flex; justify-content:center; align-items:center;">
  <img src="./assets/cover.svg" />
 </div>
 
