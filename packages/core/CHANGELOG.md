@@ -72,3 +72,54 @@
 - Abe Chen <abe1272001@gmail.com>
 
 
+
+
+## 1.0.0-beta.1...main
+
+[compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.1...main)
+
+### 🚀 Enhancements
+
+- Change middle-top to top-middle, middle-bottom to bottom-middle ([#27](https://github.com/Rock070/vue3-noti/pull/27))
+- Remove progress text ([#31](https://github.com/Rock070/vue3-noti/pull/31))
+- **noti:** Add hook onClose ([#33](https://github.com/Rock070/vue3-noti/pull/33))
+- **noti:** Change progress color to hsla ([#35](https://github.com/Rock070/vue3-noti/pull/35))
+- **noti:** Transition fade in, fade out ([#37](https://github.com/Rock070/vue3-noti/pull/37))
+- **noti:** Adjust style: transition, width, border-radius, RWD ([#38](https://github.com/Rock070/vue3-noti/pull/38))
+- **nuxt:** Add nuxt module ([#39](https://github.com/Rock070/vue3-noti/pull/39))
+
+### 🩹 Fixes
+
+- **noti:** Fix mobile size toast offset, style ([#25](https://github.com/Rock070/vue3-noti/pull/25))
+
+### 💅 Refactors
+
+- **noti:** Migrate eventBus to inject & provider ([#34](https://github.com/Rock070/vue3-noti/pull/34))
+
+### 📖 Documentation
+
+- Getting started stackblitz link ([#24](https://github.com/Rock070/vue3-noti/pull/24))
+- Update favicon, cover image and api interface ([#40](https://github.com/Rock070/vue3-noti/pull/40))
+
+### 📦 Build
+
+- Vitest/ui deps ([#30](https://github.com/Rock070/vue3-noti/pull/30))
+
+### 🏡 Chore
+
+- Publish script ([91c5cf0](https://github.com/Rock070/vue3-noti/commit/91c5cf0))
+
+### ✅ Tests
+
+- **noti:** Vitest, @vue/test-utils, one test case trigger noti, test ci ([#28](https://github.com/Rock070/vue3-noti/pull/28))
+- **noti:** Initial options, type ([#36](https://github.com/Rock070/vue3-noti/pull/36))
+
+### 🎨 Styles
+
+- Modify class style to bem ([#32](https://github.com/Rock070/vue3-noti/pull/32))
+
+### ❤️ Contributors
+
+- Rock070 ([@Rock070](http://github.com/Rock070))
+
+
