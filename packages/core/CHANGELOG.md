@@ -1,3 +1,19 @@
+## 1.0.0-beta.4
+
+[compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.3...main)
+
+### 🩹 Fixes
+
+- Nuxt module type import ([#42](https://github.com/Rock070/vue3-noti/pull/42))
+
+### 🏡 Chore
+
+- Update lockfile ([ff0138e](https://github.com/Rock070/vue3-noti/commit/ff0138e))
+
+### ❤️ Contributors
+
+- Rock070 ([@Rock070](http://github.com/Rock070))
+
 ## 1.0.0-beta.3
 
 [compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.2...main)
@@ -132,28 +148,3 @@
 
 - Rock070 ([@Rock070](http://github.com/Rock070))
 - Abe Chen <abe1272001@gmail.com>
-
-
-
-
-
-
-
-
-## 1.0.0-beta.3...main
-
-[compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.3...main)
-
-### 🩹 Fixes
-
-- Nuxt module type import ([#42](https://github.com/Rock070/vue3-noti/pull/42))
-
-### 🏡 Chore
-
-- Update lockfile ([ff0138e](https://github.com/Rock070/vue3-noti/commit/ff0138e))
-
-### ❤️ Contributors
-
-- Rock070 ([@Rock070](http://github.com/Rock070))
-
-
