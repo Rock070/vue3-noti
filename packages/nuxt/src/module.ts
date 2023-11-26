@@ -17,21 +17,16 @@ export default defineNuxtModule<NotiOptions>({
       filename: 'vue3-noti-nuxt-config-options.mjs',
       getContents: () => `export const configOptions = ${JSON.stringify(notiOptions)};`,
     }).dst
-
-    // prepare alias type
-    addTemplate({
-      src: resolver.resolve('./options.d.ts'),
-      filename: 'vue3-noti-nuxt-config-options.d.ts',
-    })
-
     nuxt.hook('prepare:types', ({ references, tsConfig }) => {
       references.push({ types: '@vue3-noti/nuxt' })
-
-      tsConfig.compilerOptions!.paths['#build/vue3-noti-nuxt-config-options'] = ['./vue3-noti-nuxt-config-options.d.ts']
     })
 
     nuxt.options.css.push('@vue3-noti/core/style.css')
 
-    addPlugin(resolver.resolve('./runtime/plugin'))
+    // Add runtime plugin before the router plugin
+    // https://github.com/nuxt/framework/issues/9130
+    nuxt.hook('modules:done', () => {
+      addPlugin(resolver.resolve('./runtime/plugin'))
+    })
   },
 })
