@@ -12,10 +12,6 @@ export default defineNuxtModule<NotiOptions>({
     // Transpile runtime
     nuxt.options.build.transpile.push(resolver.resolve('./runtime'))
 
-    nuxt.hook('prepare:types', ({ references }) => {
-      references.push({ types: '@vue3-noti/nuxt' })
-    })
-
     // Inject options via virtual template
     nuxt.options.alias['#build/vue3-noti-nuxt-config-options'] = addTemplate({
       filename: 'vue3-noti-nuxt-config-options.mjs',
@@ -26,6 +22,12 @@ export default defineNuxtModule<NotiOptions>({
     addTemplate({
       src: resolver.resolve('./options.d.ts'),
       filename: 'vue3-noti-nuxt-config-options.d.ts',
+    })
+
+    nuxt.hook('prepare:types', ({ references, tsConfig }) => {
+      references.push({ types: '@vue3-noti/nuxt' })
+
+      tsConfig.compilerOptions!.paths['#build/vue3-noti-nuxt-config-options'] = ['./vue3-noti-nuxt-config-options.d.ts']
     })
 
     nuxt.options.css.push('@vue3-noti/core/style.css')
