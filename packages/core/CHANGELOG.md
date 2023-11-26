@@ -1,3 +1,19 @@
+## 1.0.0-beta.3
+
+[compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.2...main)
+
+### 🩹 Fixes
+
+- Nuxt module ([#41](https://github.com/Rock070/vue3-noti/pull/41))
+
+### 🏡 Chore
+
+- Nuxt version ([c9fcc81](https://github.com/Rock070/vue3-noti/commit/c9fcc81))
+
+### ❤️ Contributors
+
+- Rock070 ([@Rock070](http://github.com/Rock070))
+
 ## 1.0.0-beta.2
 
 [compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.1...main)
@@ -116,6 +132,8 @@
 
 - Rock070 ([@Rock070](http://github.com/Rock070))
 - Abe Chen <abe1272001@gmail.com>
+
+
 
 
 
