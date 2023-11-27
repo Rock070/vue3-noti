@@ -4,7 +4,7 @@ import type { NotiOptions } from '@vue3-noti/core'
 export default defineNuxtModule<NotiOptions>({
   meta: {
     name: '@vue3-noti/nuxt',
-    configKey: 'vue3-noti',
+    configKey: 'noti',
   },
   setup(notiOptions, nuxt) {
     const resolver = createResolver(import.meta.url)
