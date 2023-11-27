@@ -1,4 +1,4 @@
-import { addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addImports, addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import type { NotiOptions } from '@vue3-noti/core'
 
 export default defineNuxtModule<NotiOptions>({
@@ -17,7 +17,7 @@ export default defineNuxtModule<NotiOptions>({
       filename: 'vue3-noti-nuxt-config-options.mjs',
       getContents: () => `export const configOptions = ${JSON.stringify(notiOptions)};`,
     }).dst
-    nuxt.hook('prepare:types', ({ references, tsConfig }) => {
+    nuxt.hook('prepare:types', ({ references }) => {
       references.push({ types: '@vue3-noti/nuxt' })
     })
 
@@ -28,5 +28,12 @@ export default defineNuxtModule<NotiOptions>({
     nuxt.hook('modules:done', () => {
       addPlugin(resolver.resolve('./runtime/plugin'))
     })
+
+    // Add auto imports
+    const composables = resolver.resolve('./runtime/composables')
+    addImports([
+      // built-in
+      { from: composables, name: 'useNoti' },
+    ])
   },
 })

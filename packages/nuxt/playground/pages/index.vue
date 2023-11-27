@@ -1,6 +1,4 @@
 <script setup>
-import { useNoti } from '@vue3-noti/core'
-
 const { notify } = useNoti()
 
 function handleNoti() {
