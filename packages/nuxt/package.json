@@ -1,7 +1,7 @@
 {
   "name": "@vue3-noti/nuxt",
   "type": "module",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "private": false,
   "description": "Nuxt3 Toast with Composition API",
   "license": "MIT",
@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.8.2",
-    "@vue3-noti/core": "workspace:*"
+    "@vue3-noti/core": "1.0.0-beta.5"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
