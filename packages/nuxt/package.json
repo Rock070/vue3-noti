@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.8.2",
-    "@vue3-noti/core": "1.0.0-beta.4"
+    "@vue3-noti/core": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

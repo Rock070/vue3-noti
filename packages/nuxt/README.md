@@ -39,10 +39,10 @@ npm install --save-dev @vue3-noti/nuxt
 
 ```js
 export default defineNuxtConfig({
-  'modules': [
+  modules: [
     '@vue3-noti/nuxt'
   ],
-  'vue3-noti': {
+  noti: {
     message: 'Nuxt Module Demo',
     type: 'warning',
     // ...Other vue3-noti options
