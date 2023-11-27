@@ -1,3 +1,20 @@
+## 1.0.0-beta.5
+
+[compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.4...main)
+
+### 🚀 Enhancements
+
+- Nuxt module autoImport, moduleKey: noti ([#43](https://github.com/Rock070/vue3-noti/pull/43))
+
+### 🏡 Chore
+
+- Release nuxt module 1.0.0-beta.4 ([4f23683](https://github.com/Rock070/vue3-noti/commit/4f23683))
+
+### ❤️ Contributors
+
+- Rock070 ([@Rock070](http://github.com/Rock070))
+
+
 ## 1.0.0-beta.4
 
 [compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.3...main)
