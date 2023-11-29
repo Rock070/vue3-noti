@@ -37,8 +37,7 @@ export function useCreateNoti(options: UseCreateNotiOptions) {
 
   function triggerCountDown(target: Notification) {
     const interval = setInterval(() => {
-      const now = new Date()
-      const lastTime = target.timer.endCountDownTimestamp - now.getTime()
+      const lastTime = target.timer.endCountDownTimestamp - Date.now()
       if (lastTime > 0) {
         target.timer.lastTime = lastTime
         return
