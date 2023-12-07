@@ -102,12 +102,8 @@ export function useCreateNoti(options: UseCreateNotiOptions) {
       return
     }
 
-    belongGroup.push(item)
-
-    const target = belongGroup.find(i => i.id === item.id)
-
-    if (!target)
-      return
+    const length = belongGroup.push(item)
+    const target = belongGroup[length - 1]!
 
     triggerCountDown(target)
 
