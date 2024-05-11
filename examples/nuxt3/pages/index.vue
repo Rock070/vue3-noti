@@ -8,14 +8,18 @@ function handleNoti() {
 
 <template>
   <div>
-    <button type="button" class="button" @click="handleNoti">
-      Noti
+    <button
+      type="button"
+      class="notify-button"
+      @click="handleNoti"
+    >
+      Fire Noti
     </button>
   </div>
 </template>
 
 <style>
-.button {
+.notify-button {
   cursor: pointer;
   background-color: #4CAF50;
   border: none;
