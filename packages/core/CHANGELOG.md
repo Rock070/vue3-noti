@@ -1,3 +1,20 @@
+## v1.0.1
+
+[compare changes](https://github.com/Rock070/vue3-noti/compare/v1.0.0...main)
+
+### 🩹 Fixes
+
+- Remove vueuse ([#50](https://github.com/Rock070/vue3-noti/pull/50))
+
+### 🏡 Chore
+
+- @vue3-noti/nuxt release v1.0.0 ([fede21d](https://github.com/Rock070/vue3-noti/commit/fede21d))
+- Add vue3 example ([6b0b416](https://github.com/Rock070/vue3-noti/commit/6b0b416))
+
+### ❤️ Contributors
+
+- Rock070 ([@Rock070](http://github.com/Rock070))
+
 ## 1.0.0
 
 [compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.5...main)
