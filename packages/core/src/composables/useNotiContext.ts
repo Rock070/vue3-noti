@@ -1,8 +1,9 @@
 import { getCurrentInstance, inject, ref } from 'vue'
 
-import { noop } from '@vueuse/core'
 import { INJECT_KEY } from '../constant'
 import type { NotiContext, NotiGroup, NotiOptions, Notification } from '../types'
+
+const noop = () => undefined
 
 // @ts-expect-error no-unused-vars
 // eslint-disable-next-line unused-imports/no-unused-vars

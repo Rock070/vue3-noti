@@ -1,5 +1,6 @@
-import type { Fn } from '@vueuse/core'
 import type { Ref } from 'vue'
+
+export type Fn = () => void
 
 export type NotificationType = 'success' | 'warning' | 'error' | 'info'
 

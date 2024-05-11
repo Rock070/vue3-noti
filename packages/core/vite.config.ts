@@ -26,12 +26,10 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'vue',
-        '@vueuse/core',
       ],
       output: {
         globals: {
-          'vue': 'Vue',
-          '@vueuse/core': 'VueUse',
+          vue: 'Vue',
         },
       },
     },
