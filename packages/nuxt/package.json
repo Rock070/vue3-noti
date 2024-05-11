@@ -44,13 +44,13 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.8.2",
-    "@vue3-noti/core": "1.0.0"
+    "@nuxt/kit": "^3.11.2",
+    "@vue3-noti/core": "1.0.1"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxt/eslint-config": "^0.3.12",
-    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/module-builder": "^0.6.0",
     "@nuxt/schema": "^3.11.2",
     "@nuxt/test-utils": "^3.12.1",
     "@types/node": "^20.12.11",
