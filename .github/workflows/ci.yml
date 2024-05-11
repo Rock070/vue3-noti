@@ -16,19 +16,19 @@ jobs:
   lint:
     strategy:
       matrix:
-        version: [18.17.1, 16.16]
+        version: [18, 20]
     runs-on: ubuntu-latest
     steps:
       - name: Check out to my repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 7.2.1
+          version: 9
 
       - name: Set node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.version }}
           cache: pnpm
@@ -42,19 +42,19 @@ jobs:
   type-check:
     strategy:
       matrix:
-        version: [18.17.1, 16.16]
+        version: [18, 20]
     runs-on: ubuntu-latest
     steps:
       - name: Check out to my repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 7.2.1
+          version: 9
 
       - name: Set node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.version }}
           cache: pnpm
@@ -69,15 +69,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out to my repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 7.2.1
+          version: 9
 
       - name: Set node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.version }}
 
