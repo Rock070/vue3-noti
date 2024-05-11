@@ -1,5 +1,4 @@
 import { ref } from 'vue'
-import { useCounter } from '@vueuse/core'
 
 import type { App } from 'vue'
 import { DEFAULT_SETTING, INJECT_KEY, MS_PER_FRAME, POSITION_LIST } from '../constant'
@@ -12,8 +11,8 @@ interface UseCreateNotiOptions {
 }
 
 export function useCreateNoti(options: UseCreateNotiOptions) {
+  let seed = 0
   const { app, initialOptions = DEFAULT_SETTING } = options
-  const { inc: countIncrease } = useCounter(1)
 
   const groupMap = ref<NotiGroup>({
     'top-left': [],
@@ -93,7 +92,7 @@ export function useCreateNoti(options: UseCreateNotiOptions) {
   }
 
   function notify(options: NotiOptions) {
-    const item = makeNoti(options, countIncrease())
+    const item = makeNoti(options, seed++)
 
     const belongGroup = findBelongGroup(item)
     if (!belongGroup) {

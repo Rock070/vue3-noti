@@ -57,9 +57,6 @@ importers:
 
   packages/core:
     dependencies:
-      '@vueuse/core':
-        specifier: '>=10.9.0'
-        version: 10.9.0(vue@3.3.4)
       vue:
         specifier: '>=3.3.4'
         version: 3.3.4
@@ -7325,6 +7322,7 @@ packages:
 
   semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
+    hasBin: true
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -12095,7 +12093,7 @@ snapshots:
   '@tufjs/models@2.0.0':
     dependencies:
       '@tufjs/canonical-json': 2.0.0
-      minimatch: 9.0.3
+      minimatch: 9.0.4
 
   '@tufjs/models@2.0.1':
     dependencies:
@@ -12298,7 +12296,7 @@ snapshots:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.5.4
+      semver: 7.6.2
       tsutils: 3.21.0(typescript@5.4.5)
     optionalDependencies:
       typescript: 5.4.5
@@ -12344,7 +12342,7 @@ snapshots:
       '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.4.5)
       eslint: 8.57.0
       eslint-scope: 5.1.1
-      semver: 7.5.4
+      semver: 7.6.2
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -13323,16 +13321,6 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/core@10.9.0(vue@3.3.4)':
-    dependencies:
-      '@types/web-bluetooth': 0.0.20
-      '@vueuse/metadata': 10.9.0
-      '@vueuse/shared': 10.9.0(vue@3.3.4)
-      vue-demi: 0.14.7(vue@3.3.4)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-
   '@vueuse/core@10.9.0(vue@3.4.27(typescript@5.4.5))':
     dependencies:
       '@types/web-bluetooth': 0.0.20
@@ -13412,13 +13400,6 @@ snapshots:
   '@vueuse/shared@10.4.1(vue@3.4.27(typescript@5.4.5))':
     dependencies:
       vue-demi: 0.14.7(vue@3.4.27(typescript@5.4.5))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-
-  '@vueuse/shared@10.9.0(vue@3.3.4)':
-    dependencies:
-      vue-demi: 0.14.7(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -13731,9 +13712,9 @@ snapshots:
 
   ast-kit@0.11.2(rollup@4.17.2):
     dependencies:
-      '@babel/parser': 7.23.4
+      '@babel/parser': 7.22.16
       '@rollup/pluginutils': 5.0.5(rollup@4.17.2)
-      pathe: 1.1.2
+      pathe: 1.1.1
     transitivePeerDependencies:
       - rollup
 
@@ -13755,9 +13736,9 @@ snapshots:
 
   ast-kit@0.9.5(rollup@4.17.2):
     dependencies:
-      '@babel/parser': 7.23.4
+      '@babel/parser': 7.22.16
       '@rollup/pluginutils': 5.0.5(rollup@4.17.2)
-      pathe: 1.1.2
+      pathe: 1.1.1
     transitivePeerDependencies:
       - rollup
 
@@ -15796,7 +15777,7 @@ snapshots:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.3.6
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       minipass: 7.1.1
       path-scurry: 1.11.0
 
@@ -19477,7 +19458,7 @@ snapshots:
 
   serve-placeholder@2.0.1:
     dependencies:
-      defu: 6.1.2
+      defu: 6.1.3
 
   serve-static@1.15.0:
     dependencies:
@@ -20562,7 +20543,7 @@ snapshots:
       '@babel/standalone': 7.22.20
       '@babel/types': 7.22.19
       defu: 6.1.3
-      jiti: 1.20.0
+      jiti: 1.21.0
       mri: 1.2.0
       scule: 1.1.0
     transitivePeerDependencies:
@@ -21117,10 +21098,6 @@ snapshots:
   vue-component-type-helpers@1.8.27: {}
 
   vue-component-type-helpers@2.0.17: {}
-
-  vue-demi@0.14.7(vue@3.3.4):
-    dependencies:
-      vue: 3.3.4
 
   vue-demi@0.14.7(vue@3.4.27(typescript@5.4.5)):
     dependencies:
