@@ -95,8 +95,8 @@ importers:
         specifier: ^3.8.2
         version: 3.8.2(rollup@4.17.2)
       '@vue3-noti/core':
-        specifier: 1.0.0-beta.5
-        version: 1.0.0-beta.5(@vueuse/core@10.9.0(vue@3.4.27(typescript@5.4.5)))(vue@3.4.27(typescript@5.4.5))
+        specifier: 1.0.0
+        version: 1.0.0(vue@3.4.27(typescript@5.4.5))
     devDependencies:
       '@nuxt/devtools':
         specifier: latest
@@ -2858,10 +2858,9 @@ packages:
   '@vue/test-utils@2.4.6':
     resolution: {integrity: sha512-FMxEjOpYNYiFe0GkaHsnJPXFHxQ6m4t8vI/ElPGpMWxZKpmRvQ33OIrvRXemy6yha03RxhOlQuy+gZMC3CQSow==}
 
-  '@vue3-noti/core@1.0.0-beta.5':
-    resolution: {integrity: sha512-9L/msR/n57AzI9MPpBi0owaEqLFw4LwJm9WP1l/PM407J5KjbhHfqA2vfT2w3Q5NRP6yBNvkk5T2oSw6yXMN9g==}
+  '@vue3-noti/core@1.0.0':
+    resolution: {integrity: sha512-FRu9kKJWP9CS0xhbaUaEuBHuxrA3Lneqo2sK/qgQJ2lhdTqmCKxeT0kpe1TriQn7rLdhgSX2KnM7mOddRaq/Bw==}
     peerDependencies:
-      '@vueuse/core': '>=10.3.0'
       vue: '>=3.3.4'
 
   '@vueuse/components@10.9.0':
@@ -13297,9 +13296,8 @@ snapshots:
       js-beautify: 1.14.9
       vue-component-type-helpers: 2.0.17
 
-  '@vue3-noti/core@1.0.0-beta.5(@vueuse/core@10.9.0(vue@3.4.27(typescript@5.4.5)))(vue@3.4.27(typescript@5.4.5))':
+  '@vue3-noti/core@1.0.0(vue@3.4.27(typescript@5.4.5))':
     dependencies:
-      '@vueuse/core': 10.9.0(vue@3.4.27(typescript@5.4.5))
       vue: 3.4.27(typescript@5.4.5)
 
   '@vueuse/components@10.9.0(vue@3.4.27(typescript@5.4.5))':

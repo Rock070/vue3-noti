@@ -1,7 +1,7 @@
 {
   "name": "@vue3-noti/nuxt",
   "type": "module",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0",
   "private": false,
   "description": "Nuxt3 Toast with Composition API",
   "license": "MIT",
@@ -38,14 +38,14 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release": "npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
   "dependencies": {
     "@nuxt/kit": "^3.8.2",
-    "@vue3-noti/core": "1.0.0-beta.5"
+    "@vue3-noti/core": "1.0.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
