@@ -1,3 +1,30 @@
+## 1.0.0
+
+[compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.5...main)
+
+### 🔥 Performance
+
+- **noti:** Avoid unnecessary loop execution ([#45](https://github.com/Rock070/vue3-noti/pull/45))
+
+### 🩹 Fixes
+
+- Nuxt module dependency ([9b8774b](https://github.com/Rock070/vue3-noti/commit/9b8774b))
+
+### 💅 Refactors
+
+- **noti:** Use Date.now() instead of new Date().getTime() ([#44](https://github.com/Rock070/vue3-noti/pull/44))
+- **noti:** Use simple implementation instead ([#46](https://github.com/Rock070/vue3-noti/pull/46))
+
+### 🏡 Chore
+
+- Update ci deps ([#49](https://github.com/Rock070/vue3-noti/pull/49))
+- Update node 20 and pnpm 9 ([#48](https://github.com/Rock070/vue3-noti/pull/48))
+
+### ❤️ Contributors
+
+- Alex Liu ([@Mini-ghost](http://github.com/Mini-ghost))
+- Rock070 ([@Rock070](http://github.com/Rock070))
+
 ## 1.0.0-beta.5
 
 [compare changes](https://github.com/Rock070/vue3-noti/compare/1.0.0-beta.4...main)
@@ -13,7 +40,6 @@
 ### ❤️ Contributors
 
 - Rock070 ([@Rock070](http://github.com/Rock070))
-
 
 ## 1.0.0-beta.4
 
@@ -96,7 +122,6 @@
 - Rock070 ([@Rock070](http://github.com/Rock070))
 
 ## 1.0.0-beta.1
-
 
 ### 🚀 Enhancements
 
