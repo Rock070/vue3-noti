@@ -4,7 +4,8 @@ import { noop } from '@vueuse/core'
 import { INJECT_KEY } from '../constant'
 import type { NotiContext, NotiGroup, NotiOptions, Notification } from '../types'
 
-// @ts-expect-error unused
+// @ts-expect-error no-unused-vars
+// eslint-disable-next-line unused-imports/no-unused-vars
 const notiNoop = (val: Notification) => undefined
 
 export function useNotiContext(): NotiContext {
@@ -25,6 +26,7 @@ export function useNotiContext(): NotiContext {
     //
 
     // @ts-expect-error unused
+    // eslint-disable-next-line unused-imports/no-unused-vars
     notify: (options: NotiOptions) => undefined,
     closeAll: noop,
     onMouseEnter: notiNoop,
