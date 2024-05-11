@@ -11,7 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@vue3-noti/core": "^1.0.1",
+    "@vue3-noti/core": "latest",
     "vue": "^3.4.21"
   },
   "devDependencies": {
