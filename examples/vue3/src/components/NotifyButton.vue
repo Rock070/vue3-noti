@@ -6,8 +6,8 @@ const { notify } = useNoti()
 function sendMessage() {
   notify({
     message: 'Hi Noti',
-    type: 'success',
-    position: 'top-right',
+    type: 'warning',
+    position: 'bottom-right',
     duration: 3000,
     hoverPause: true,
     closeOnClick: true,
@@ -29,8 +29,17 @@ function sendMessage() {
 <style>
 .notify-button {
   cursor: pointer;
-  padding: 20px 40px;
+  background-color: #4CAF50;
+  border: none;
   border-radius: 8px;
-  background-color: hsla(160, 100%, 37%, 1);;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto;
+  font-size: 16px;
 }
 </style>

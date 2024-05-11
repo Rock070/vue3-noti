@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   noti: {
     message: 'Nuxt Module Demo',
     type: 'warning',
+    position: 'bottom-right',
     // ...Other vue3-noti options
   },
 })
