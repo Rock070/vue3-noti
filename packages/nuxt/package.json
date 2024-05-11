@@ -1,7 +1,7 @@
 {
   "name": "@vue3-noti/nuxt",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Nuxt3 Toast with Composition API",
   "license": "MIT",
